@@ -1,50 +1,56 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Welcome to Linlong's Site</title>
+  <title>Linlong's Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Slick Carousel 样式 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
   <style>
-    body { margin: 0; font-family: sans-serif; background: #000; }
-    .carousel img { width: 100%; height: 100vh; object-fit: cover; }
+    body { margin: 0; background: #000; }
+    .carousel img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
     .caption {
       position: absolute;
       bottom: 50px;
       left: 50px;
       font-size: 2rem;
-      color: #fff;
+      color: white;
       text-shadow: 2px 2px 4px #000;
+      z-index: 10;
+    }
+    .carousel div {
+      position: relative;
     }
   </style>
 </head>
 <body>
 
-  <div class="carousel">
-    <div>
-      <img src="/assets/images/1.png">
-      <div class="caption">“It was hard, but we made it.”</div>
-    </div>
-    <div>
-      <img src="/assets/images/2.png">
-      <div class="caption">Sidere mens eadem mutato</div>
-    </div>
+<div class="carousel">
+  <div>
+    <img src="/LongLin.github.io/assets/images/1.png">
+    <div class="caption">“It was hard, but we made it.”</div>
   </div>
+  <div>
+    <img src="/LongLin.github.io/assets/images/2.png">
+    <div class="caption">Sidere mens eadem mutato</div>
+  </div>
+</div>
 
-  <!-- jQuery + Slick JS -->
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-  <script>
-    $('.carousel').slick({
-      autoplay: true,
-      arrows: false,
-      dots: true,
-      fade: true,
-      speed: 1000
-    });
-  </script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+  $('.carousel').slick({
+    autoplay: true,
+    arrows: false,
+    dots: true,
+    fade: true,
+    speed: 1000
+  });
+</script>
 </body>
 </html>
-
