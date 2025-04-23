@@ -5,30 +5,59 @@
   <title>Linlong's Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Slick Carousel 样式 -->
+  <!-- Slick Carousel -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
   <style>
-    body { margin: 0; background: #000; }
+    body { margin: 0; font-family: sans-serif; background: #000; }
+    nav {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
     .carousel img {
       width: 100vw;
       height: 100vh;
       object-fit: cover;
     }
-    .caption {
-      position: absolute;
-      bottom: 50px;
-      left: 50px;
-      font-size: 2rem;
-      color: white;
-      text-shadow: 2px 2px 4px #000;
-      z-index: 10;
+    .section {
+      background: #fff;
+      padding: 60px 40px;
+      color: #333;
     }
-    .carousel div {
-      position: relative;
+    .section h2 {
+      margin-top: 0;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .card {
+      background: #f8f8f8;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
   </style>
 </head>
 <body>
+
+<nav>
+  <a href="#courses">Courses</a>
+  <a href="#competitions">Competitions</a>
+  <a href="#projects">Projects</a>
+  <a href="#online">Online Learning</a>
+</nav>
 
 <div class="carousel">
   <div>
@@ -36,6 +65,62 @@
   </div>
   <div>
     <img src="/assets/images/2.png">
+  </div>
+</div>
+
+<div id="courses" class="section">
+  <h2>📚 Courses</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>STAT2011 - Probability & Statistics</h3>
+      <p>Covered PMF, CDF, Bayes, Distributions, R Simulation, etc.</p>
+    </div>
+    <div class="card">
+      <h3>DATA2001 - Data Wrangling</h3>
+      <p>Learned SQL, Pandas, Indexing, Data Partitioning, etc.</p>
+    </div>
+  </div>
+</div>
+
+<div id="competitions" class="section">
+  <h2>🏆 Competitions</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Meituan Data Competition</h3>
+      <p>Delivery optimization + user behavior insights. Focused on dispatch prediction.</p>
+    </div>
+    <div class="card">
+      <h3>L'Oréal Brand Innovation</h3>
+      <p>Skincare product + App + community for men's market. "Your Grooming, Your Rules."</p>
+    </div>
+  </div>
+</div>
+
+<div id="projects" class="section">
+  <h2>🚀 Projects</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>AI x ESG: Circular Fashion</h3>
+      <p>Used GPT + ViT to evaluate sustainability based on text and image analysis.</p>
+    </div>
+    <div class="card">
+      <h3>AI Maintenance Assistant</h3>
+      <p>Hackathon idea: Education Copilot for reporting & diagnosing school device failures.</p>
+    </div>
+  </div>
+</div>
+
+<div id="online" class="section">
+  <h2>🎓 Online Learning</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Coursera - SQL for Data Science</h3>
+      <p>Mastered filtering, aggregation, JOIN, subqueries, and GROUPING SETS.</p>
+    </div>
+    <div class="card">
+      <h3>Kaggle Micro-Courses</h3>
+      <p>Learned feature engineering, data cleaning, and classification pipeline design.</p>
+    </div>
   </div>
 </div>
 
@@ -52,3 +137,4 @@
 </script>
 </body>
 </html>
+
