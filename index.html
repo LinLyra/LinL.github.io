@@ -2,6 +2,53 @@
 # You don't need to edit this file, it's empty on purpose.
 # Edit theme's home layout instead if you wanna make some changes
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-layout: home
-author_profile: true
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to Linlong's Site</title>
+
+  <!-- Slick Carousel 样式 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <style>
+    body { margin: 0; font-family: sans-serif; background: #000; }
+    .carousel img { width: 100%; height: 100vh; object-fit: cover; }
+    .caption {
+      position: absolute;
+      bottom: 50px;
+      left: 50px;
+      font-size: 2rem;
+      color: #fff;
+      text-shadow: 2px 2px 4px #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="carousel">
+    <div>
+      <img src="/assets/images/1.png">
+      <div class="caption">“It was hard, but we made it.”</div>
+    </div>
+    <div>
+      <img src="/assets/images/2.png">
+      <div class="caption">Sidere mens eadem mutato</div>
+    </div>
+  </div>
+
+  <!-- jQuery + Slick JS -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script>
+    $('.carousel').slick({
+      autoplay: true,
+      arrows: false,
+      dots: true,
+      fade: true,
+      speed: 1000
+    });
+  </script>
+</body>
+</html>
+
 ---
