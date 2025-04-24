@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Linlong's Portfolio</title>
+  <title>Long Lin 林珑 | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
   <style>
@@ -35,19 +35,13 @@
       font-weight: bold;
       font-size: 1rem;
     }
-    .hero {
+    .hero-carousel {
       position: relative;
+    }
+    .hero-carousel img {
       width: 100%;
-      height: 40vh;
-      background: url('assets/images/1.png') no-repeat center center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 1px 1px 5px black;
-      font-size: 1.6rem;
-      text-align: center;
-      padding: 0 20px;
+      height: 100vh;
+      object-fit: cover;
     }
     .section {
       padding: 50px 40px;
@@ -98,24 +92,28 @@
   <div class="intro">
     <img src="assets/images/bio-photo.jpg" alt="Profile Photo">
     <div>
-      <strong>Linlong Lin</strong><br>
+      <strong>Long Lin 林珑</strong><br>
       The University of Sydney<br>
+      Bachelor of Science, 
       Data Science & Business Analysis
     </div>
   </div>
   <nav>
     <a href="#about">About</a>
-    <a href="#courses">Learning</a>
+    <a href="#experience">Experience</a>
+    <a href="#learning">Learning</a>
     <a href="#competitions">Competitions</a>
     <a href="#projects">Projects</a>
     <a href="#volunteer">Volunteer</a>
-    <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<div class="hero">
-  One day we are going to sit together and say: "It was hard, but we made it."
+<div class="hero-carousel">
+  <div class="carousel">
+    <div><img src="assets/images/1.png" alt="Slide 1"></div>
+    <div><img src="assets/images/2.png" alt="Slide 2"></div>
+  </div>
 </div>
 
 <div id="about" class="section">
@@ -123,7 +121,21 @@
   <p>I’m a data science & business analysis student passionate about solving real-world problems with analytical thinking and creativity. I enjoy working on projects that combine technology with impact, and I'm continuously exploring roles in data, product, and AI strategy across industries.</p>
 </div>
 
-<div id="courses" class="section">
+<div id="experience" class="section">
+  <h2>💼 Experience</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Product Consultant (Part-time)</h3>
+      <p>Worked with a nonprofit on digital transformation. Led product strategy and user needs analysis.</p>
+    </div>
+    <div class="card">
+      <h3>Business Analyst Intern</h3>
+      <p>Analyzed internal data and delivered insights that supported real-world business improvements.</p>
+    </div>
+  </div>
+</div>
+
+<div id="learning" class="section">
   <h2>📚 Learning</h2>
   <div class="card-grid">
     <div class="card">
@@ -136,7 +148,7 @@
     </div>
     <div class="card">
       <h3>Kaggle Micro-Courses</h3>
-      <p>Learned feature engineering, data cleaning, and classification pipeline design.</p>
+      <p>Feature engineering, data cleaning, classification pipeline design.</p>
     </div>
   </div>
   <a href="#" class="more-link">View More Learning →</a>
@@ -147,11 +159,11 @@
   <div class="card-grid">
     <div class="card">
       <h3>Meituan Data Competition</h3>
-      <p>Delivery optimization + user behavior insights. Focused on dispatch prediction.</p>
+      <p>Delivery optimization + user behavior insights. Dispatch prediction model design.</p>
     </div>
     <div class="card">
       <h3>L'Oréal Brand Innovation</h3>
-      <p>Skincare product + App + community for men's market. "Your Grooming, Your Rules."</p>
+      <p>Men’s skincare strategy: product + App + user community. “Your Grooming, Your Rules.”</p>
     </div>
   </div>
   <a href="#" class="more-link">View More Competitions →</a>
@@ -162,11 +174,11 @@
   <div class="card-grid">
     <div class="card">
       <h3>AI x ESG: Circular Fashion</h3>
-      <p>Used GPT + ViT to evaluate sustainability based on text and image analysis.</p>
+      <p>Used GPT + ViT for sustainability scoring from multi-modal inputs.</p>
     </div>
     <div class="card">
       <h3>AI Maintenance Assistant</h3>
-      <p>Hackathon idea: Education Copilot for reporting & diagnosing school device failures.</p>
+      <p>Education Copilot to diagnose/report classroom device failures in schools.</p>
     </div>
   </div>
   <a href="#" class="more-link">View More Projects →</a>
@@ -177,34 +189,32 @@
   <div class="card-grid">
     <div class="card">
       <h3>KPMG ESG Case Consulting</h3>
-      <p>Top 1 public interest consulting firm, ESG case on EV supply chains.</p>
-    </div>
-  </div>
-</div>
-
-<div id="experience" class="section">
-  <h2>💼 Experience</h2>
-  <div class="card-grid">
-    <div class="card">
-      <h3>Product Consultant (Part-time)</h3>
-      <p>Worked with a leading nonprofit to design digital products. Contributed to product strategy and user research in a real client environment.</p>
-    </div>
-    <div class="card">
-      <h3>Business Analyst Intern</h3>
-      <p>Extracted insights from operation data to support strategic decision-making. Focused on business logic and product feature improvements.</p>
+      <p>Worked on EV supply chain sustainability for a top public interest firm.</p>
     </div>
   </div>
 </div>
 
 <footer id="contact">
   <h2>📬 Contact Me</h2>
-  <p>Feel free to reach out via the links below.</p>
+  <p>Feel free to reach out or connect through:</p>
   <div class="contact-links">
     <a href="mailto:linlong@example.com">Email</a>
     <a href="https://github.com/linlong-data" target="_blank">GitHub</a>
     <a href="https://www.linkedin.com/in/linlong-lin" target="_blank">LinkedIn</a>
   </div>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+  $('.carousel').slick({
+    autoplay: true,
+    arrows: false,
+    dots: false,
+    fade: true,
+    speed: 1000
+  });
+</script>
 
 </body>
 </html>
