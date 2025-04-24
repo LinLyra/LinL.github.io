@@ -4,34 +4,53 @@
   <meta charset="UTF-8">
   <title>Linlong's Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Slick Carousel -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
   <style>
-    body { margin: 0; font-family: sans-serif; background: #000; }
-    nav {
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 20;
+    body { margin: 0; font-family: sans-serif; background: #fff; color: #333; }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 50px;
+      background: #000;
+      color: white;
+    }
+    .intro {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .intro img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+    .intro div {
+      line-height: 1.2;
     }
     nav a {
       color: white;
-      margin: 0 15px;
+      margin-left: 20px;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
-    .carousel img {
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 40vh;
+      background: url('assets/images/1.png') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 1px 1px 5px black;
+      font-size: 1.6rem;
+      text-align: center;
+      padding: 0 20px;
     }
     .section {
-      background: #fff;
-      padding: 60px 40px;
-      color: #333;
+      padding: 50px 40px;
     }
     .section h2 {
       margin-top: 0;
@@ -48,28 +67,64 @@
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
+    .more-link {
+      margin-top: 15px;
+      display: inline-block;
+      color: #007acc;
+      text-decoration: none;
+    }
+    footer {
+      background: #000;
+      color: #ccc;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+    }
+    footer .contact-links {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    footer .contact-links a {
+      color: #ccc;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
 
-<nav>
-  <a href="#courses">Courses</a>
-  <a href="#competitions">Competitions</a>
-  <a href="#projects">Projects</a>
-  <a href="#online">Online Learning</a>
-</nav>
+<header>
+  <div class="intro">
+    <img src="assets/images/bio-photo.jpg" alt="Profile Photo">
+    <div>
+      <strong>Linlong Lin</strong><br>
+      The University of Sydney<br>
+      Data Science & Business Analysis
+    </div>
+  </div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#courses">Learning</a>
+    <a href="#competitions">Competitions</a>
+    <a href="#projects">Projects</a>
+    <a href="#volunteer">Volunteer</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-<div class="carousel">
-  <div>
-    <img src="assets/images/1.png">
-  </div>
-  <div>
-    <img src="assets/images/2.png">
-  </div>
+<div class="hero">
+  One day we are going to sit together and say: "It was hard, but we made it."
+</div>
+
+<div id="about" class="section">
+  <h2>👩‍💻 About Me</h2>
+  <p>I’m a data science & business analysis student passionate about solving real-world problems with analytical thinking and creativity. I enjoy working on projects that combine technology with impact, and I'm continuously exploring roles in data, product, and AI strategy across industries.</p>
 </div>
 
 <div id="courses" class="section">
-  <h2>📚 Courses</h2>
+  <h2>📚 Learning</h2>
   <div class="card-grid">
     <div class="card">
       <h3>STAT2011 - Probability & Statistics</h3>
@@ -79,7 +134,12 @@
       <h3>DATA2001 - Data Wrangling</h3>
       <p>Learned SQL, Pandas, Indexing, Data Partitioning, etc.</p>
     </div>
+    <div class="card">
+      <h3>Kaggle Micro-Courses</h3>
+      <p>Learned feature engineering, data cleaning, and classification pipeline design.</p>
+    </div>
   </div>
+  <a href="#" class="more-link">View More Learning →</a>
 </div>
 
 <div id="competitions" class="section">
@@ -94,6 +154,7 @@
       <p>Skincare product + App + community for men's market. "Your Grooming, Your Rules."</p>
     </div>
   </div>
+  <a href="#" class="more-link">View More Competitions →</a>
 </div>
 
 <div id="projects" class="section">
@@ -108,34 +169,42 @@
       <p>Hackathon idea: Education Copilot for reporting & diagnosing school device failures.</p>
     </div>
   </div>
+  <a href="#" class="more-link">View More Projects →</a>
 </div>
 
-<div id="online" class="section">
-  <h2>🎓 Online Learning</h2>
+<div id="volunteer" class="section">
+  <h2>🌟 Volunteer & Others</h2>
   <div class="card-grid">
     <div class="card">
-      <h3>Coursera - SQL for Data Science</h3>
-      <p>Mastered filtering, aggregation, JOIN, subqueries, and GROUPING SETS.</p>
-    </div>
-    <div class="card">
-      <h3>Kaggle Micro-Courses</h3>
-      <p>Learned feature engineering, data cleaning, and classification pipeline design.</p>
+      <h3>KPMG ESG Case Consulting</h3>
+      <p>Top 1 public interest consulting firm, ESG case on EV supply chains.</p>
     </div>
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script>
-  $('.carousel').slick({
-    autoplay: true,
-    arrows: false,
-    dots: true,
-    fade: true,
-    speed: 1000
-  });
-</script>
+<div id="experience" class="section">
+  <h2>💼 Experience</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Product Consultant (Part-time)</h3>
+      <p>Worked with a leading nonprofit to design digital products. Contributed to product strategy and user research in a real client environment.</p>
+    </div>
+    <div class="card">
+      <h3>Business Analyst Intern</h3>
+      <p>Extracted insights from operation data to support strategic decision-making. Focused on business logic and product feature improvements.</p>
+    </div>
+  </div>
+</div>
+
+<footer id="contact">
+  <h2>📬 Contact Me</h2>
+  <p>Feel free to reach out via the links below.</p>
+  <div class="contact-links">
+    <a href="mailto:linlong@example.com">Email</a>
+    <a href="https://github.com/linlong-data" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/linlong-lin" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
 </body>
 </html>
-
-
