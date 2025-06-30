@@ -1,5 +1,4 @@
-<script>
-particlesJS('particles-js', {
+{
   "particles": {
     "number": {
       "value": 100,
@@ -16,7 +15,13 @@ particlesJS('particles-js', {
     },
     "opacity": {
       "value": 0.5,
-      "random": true
+      "random": true,
+      "anim": {
+        "enable": true,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
     },
     "size": {
       "value": 4,
@@ -27,7 +32,11 @@ particlesJS('particles-js', {
     },
     "move": {
       "enable": true,
-      "speed": 2
+      "speed": 2,
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out"
     }
   },
   "interactivity": {
@@ -57,6 +66,5 @@ particlesJS('particles-js', {
     }
   },
   "retina_detect": true
-});
-</script>
+}
 
