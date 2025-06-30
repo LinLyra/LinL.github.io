@@ -19,30 +19,23 @@
       height: 100%;
       z-index: -2;
     }
-    .floating-tags {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: -1;
-    }
     .floating-tags span {
       position: absolute;
       color: #ff69b4;
-      opacity: 0.5;
-      font-size: 20px;
+      opacity: 0.7;
+      font-size: 22px;
       white-space: nowrap;
+      pointer-events: none;
       animation: float linear infinite;
     }
     @keyframes float {
       from {
-        transform: translateY(100vh);
+        transform: translate(0, 0);
+        opacity: 0.2;
       }
       to {
-        transform: translateY(-120vh);
+        transform: translate(var(--tx), var(--ty));
+        opacity: 0.7;
       }
     }
     .contact-btn {
@@ -54,6 +47,7 @@
       text-decoration: none;
       font-size: 16px;
       transition: all 0.3s;
+      z-index: 10;
     }
     .contact-btn:hover {
       color: #ff1493;
@@ -115,18 +109,21 @@
 <body>
   <div id="particles-js"></div>
 
-  <div class="floating-tags">
-    <span style="left: 10%;">🏀 Basketball fan</span>
-    <span style="left: 25%;">✈️ Travel lover</span>
-    <span style="left: 40%;">📷 Photography</span>
-    <span style="left: 55%;">🎶 Music lover</span>
-    <span style="left: 70%;">♟️ Board game fan</span>
-    <span style="left: 85%;">🤝 Volunteer</span>
-    <span style="left: 15%;">😊 Extrovert</span>
-  </div>
-
+  <!-- Contact button -->
   <a href="/contact.html" class="contact-btn">📡 Contact</a>
 
+  <!-- Floating tags -->
+  <div class="floating-tags">
+    <span>🏀 Basketball fan</span>
+    <span>✈️ Travel lover</span>
+    <span>📸 Photography</span>
+    <span>🎵 Pipa music</span>
+    <span>♟️ Go player</span>
+    <span>🤝 Volunteering</span>
+    <span>😊 Extrovert</span>
+  </div>
+
+  <!-- Main content -->
   <div class="content">
     <img src="../assets/images/me.jpg" class="avatar" />
     <h1>Lin Long (Lyra)</h1>
@@ -135,9 +132,8 @@
     
     <p class="motto">Learn to change the world.</p>
     <p class="bio">
-       I’m a lifelong learner and curiosity-driven data enthusiast, passionate about uncovering insights and driving smarter decisions through data. 
-       <br><br>
-       My interests lie at the intersection of data science, AI products, and digital consulting, where I’m excited to create meaningful impact through technology and insights.
+      I’m a lifelong learner and curiosity-driven data enthusiast, passionate about uncovering insights and driving smarter decisions through data. 
+      My interests lie at the intersection of data science, AI products, and digital consulting, where I’m excited to create meaningful impact through technology and insights.
     </p>
 
     <div class="buttons">
@@ -156,12 +152,16 @@
       console.log('Particles.js config loaded');
     });
 
-    // Slow down tags
     document.querySelectorAll('.floating-tags span').forEach(tag => {
-      tag.style.animationDuration = (30 + Math.random() * 30) + "s";
+      const tx = (Math.random() - 0.5) * window.innerWidth + 'px';
+      const ty = (Math.random() - 0.5) * window.innerHeight + 'px';
+      tag.style.setProperty('--tx', tx);
+      tag.style.setProperty('--ty', ty);
+      tag.style.top = Math.random() * window.innerHeight + 'px';
+      tag.style.left = Math.random() * window.innerWidth + 'px';
+      tag.style.animationDuration = (60 + Math.random() * 60) + "s";
     });
   </script>
 </body>
 </html>
-
 
