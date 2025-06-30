@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Welcome to My Universe</title>
+  
+  <!-- 引入 Lottie Player -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  
   <style>
     body {
       margin: 0;
@@ -16,10 +20,7 @@
       align-items: center;
       text-align: center;
       height: 100vh;
-    }
-    img {
-      max-width: 200px;
-      margin-bottom: 20px;
+      overflow: hidden;
     }
     h1 {
       font-size: 28px;
@@ -30,6 +31,9 @@
       line-height: 1.5;
       margin: 8px;
       max-width: 600px;
+    }
+    h2 {
+      margin-top: 20px;
     }
     .buttons {
       margin-top: 30px;
@@ -51,14 +55,26 @@
   </style>
 </head>
 <body>
-  <img src="assets/images/welcome.png" alt="Astronaut" />
+  
+  <!-- Lottie 宇航员动画 -->
+  <lottie-player
+    src="/assets/animations/astronaut.json"
+    background="transparent"
+    speed="1"
+    style="width: 200px; height: 200px; margin-bottom: 20px;"
+    loop
+    autoplay>
+  </lottie-player>
+
   <h1>Welcome To My Universe！</h1>
   <h1>亲爱的宇宙同伴们 LLAP 🖖</h1>
   <p>在广袤的空间和无限的时间里，能与你共享同一颗行星和同一段时光，是我莫大的荣幸。</p>
-  <p> It is my greatest honor to share the same planet and the same moment in time with you.<br>
-  May every random choice of the universe lead you to the future you wish for.<br>
-  The universe is infinite, and the exploration is endless.<br>  </p>
+  <p>It is my greatest honor to share the same planet and the same moment in time with you.<br>
+    May every random choice of the universe lead you to the future you wish for.<br>
+    The universe is infinite, and the exploration is endless.<br>
+  </p>
   <h2>To infinity—and beyond.</h2>
+  
   <div class="buttons">
     <a href="/cn/">进入宇宙</a>
     <a href="/en/">Enter universe</a>
