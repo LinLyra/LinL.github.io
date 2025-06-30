@@ -1,75 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Universe Dashboard</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+<body>
+  <div id="particles-js"></div>
+
+  <div class="content">
+    <img src="../assets/images/me.jpg" class="avatar"/>
+    <h1>LinLyra</h1>
+    <p class="school">University of Sydney · Data Science & Business Analytics</p>
+    
+    <p class="motto">Learn to change the world.</p>
+    <p class="bio">
+      I’m a lifelong learner, curiosity-driven and creative thinker, passionate about data science, AI products, and digital consulting.
+      I love exploring how technology and business strategy intersect to drive impactful solutions and meaningful change.
+    </p>
+
+    <div class="buttons">
+      <a href="/about.html">About Me</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS.load('particles-js', '../assets/animations/particlesjs-config.json?v=' + Math.random(), function() {
+      console.log('Particles.js config loaded');
+    });
+  </script>
+
+  <style>
+    <body>
+  <div id="particles-js"></div>
+
+  <div class="content">
+    <img src="../assets/images/me.jpg" class="avatar"/>
+    <h1>LinLyra</h1>
+    <p class="school">University of Sydney · Data Science & Business Analytics</p>
+    
+    <p class="motto">Learn to change the world.</p>
+    <p class="bio">
+      I’m a lifelong learner, curiosity-driven and creative thinker, passionate about data science, AI products, and digital consulting.
+      I love exploring how technology and business strategy intersect to drive impactful solutions and meaningful change.
+    </p>
+
+    <div class="buttons">
+      <a href="/about.html">About Me</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS.load('particles-js', '../assets/animations/particlesjs-config.json?v=' + Math.random(), function() {
+      console.log('Particles.js config loaded');
+    });
+  </script>
+
   <style>
     body {
       margin: 0;
       background: black;
-      color: #fff;
-      font-family: "Orbitron", sans-serif;
-      height: 100vh;
-      overflow: hidden;
+      color: white;
+      font-family: "Segoe UI", sans-serif;
     }
-
-    /* Contact button fixed top right */
-    .contact-btn {
+    #particles-js {
       position: fixed;
-      top: 20px;
-      right: 30px;
-      background: #ff69b4;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
-      transition: all 0.3s;
-    }
-
-    .contact-btn:hover {
-      background: #ff1493;
-      box-shadow: 0 0 15px #ff69b4;
-    }
-
-    .dashboard {
-      position: relative;
       width: 100%;
       height: 100%;
+      z-index: -1;
     }
-
-    .btn {
-      position: absolute;
-      background: rgba(255, 105, 180, 0.2);
-      color: #ff69b4;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 18px;
+    .content {
+      position: relative;
+      text-align: center;
+      padding: 50px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .avatar {
+      max-width: 200px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+    h1 {
+      margin: 10px 0;
+      font-size: 36px;
       font-weight: bold;
-      border: 2px solid #ff69b4;
+    }
+    .school {
+      font-size: 18px;
+      color: #ff69b4;
+      margin-bottom: 20px;
+    }
+    .motto {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 20px 0 10px;
+    }
+    .bio {
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+    .buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 24px;
+      background: #ff69b4;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
       transition: all 0.3s;
     }
-
-    .btn:hover {
-      background: rgba(255, 105, 180, 0.5);
-      box-shadow: 0 0 20px #ff69b4;
-      color: white;
+    .buttons a:hover {
+      background: #ff1493;
     }
   </style>
-</head>
-<body>
-  <a href="/contact.html" class="contact-btn">📡 Contact</a>
-
-  <div class="dashboard">
-    <a href="/experience.html" class="btn" style="top: 20%; left: 25%;">🪐 Experience</a>
-    <a href="/projects.html" class="btn" style="top: 35%; left: 60%;">🚀 Projects</a>
-    <a href="/learning.html" class="btn" style="top: 50%; left: 40%;">🌟 Learning</a>
-    <a href="/competitions.html" class="btn" style="top: 65%; left: 20%;">✨ Competitions</a>
-    <a href="/Activity.html" class="btn" style="top: 65%; left: 65%;">🌌 Events</a>
-  </div>
 </body>
-</html>
+
+
