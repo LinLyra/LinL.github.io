@@ -4,8 +4,13 @@
   <div class="content">
     <img src="../assets/images/me.jpg" class="avatar"/>
     <h1>LinLyra</h1>
-    <p>University of Sydney · Data Science & Business Analytics</p>
-    <p>Learn to change the world | Lifelong learner | Curiosity-driven data explorer</p>
+    <p class="school">University of Sydney · Data Science & Business Analytics</p>
+    
+    <p class="motto">Learn to change the world.</p>
+    <p class="bio">
+      I’m a lifelong learner, curiosity-driven and creative thinker, passionate about data science, AI products, and digital consulting.
+      I love exploring how technology and business strategy intersect to drive impactful solutions and meaningful change.
+    </p>
 
     <div class="buttons">
       <a href="/about.html">About Me</a>
@@ -16,9 +21,9 @@
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-   particlesJS.load('particles-js', '../assets/animations/particlesjs-config.json?v=' + Math.random(), function() {
-  console.log('Particles.js config loaded');
-});
+    particlesJS.load('particles-js', '../assets/animations/particlesjs-config.json?v=' + Math.random(), function() {
+      console.log('Particles.js config loaded');
+    });
   </script>
 
   <style>
@@ -26,7 +31,7 @@
       margin: 0;
       background: black;
       color: white;
-      font-family: sans-serif;
+      font-family: "Segoe UI", sans-serif;
     }
     #particles-js {
       position: fixed;
@@ -38,19 +43,48 @@
       position: relative;
       text-align: center;
       padding: 50px;
+      max-width: 900px;
+      margin: 0 auto;
     }
     .avatar {
       max-width: 200px;
       border-radius: 50%;
+      margin-bottom: 20px;
+    }
+    h1 {
+      margin: 10px 0;
+      font-size: 36px;
+      font-weight: bold;
+    }
+    .school {
+      font-size: 18px;
+      color: #ff69b4;
+      margin-bottom: 20px;
+    }
+    .motto {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 20px 0 10px;
+    }
+    .bio {
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto 30px;
     }
     .buttons a {
       display: inline-block;
       margin: 10px;
-      padding: 10px 20px;
+      padding: 12px 24px;
       background: #ff69b4;
       color: white;
       text-decoration: none;
       border-radius: 5px;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    .buttons a:hover {
+      background: #ff1493;
     }
   </style>
 </body>
