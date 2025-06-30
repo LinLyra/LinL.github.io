@@ -28,8 +28,32 @@
       text-decoration: none;
       font-size: 16px;
       transition: all 0.3s;
+      z-index: 20;
     }
     .contact-btn:hover {
+      color: #ffffff;
+    }
+    .theme-switcher {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      display: flex;
+      gap: 15px;
+    }
+    .theme-switcher span {
+      color: #00bfff;
+      cursor: pointer;
+      font-weight: bold;
+      transition: color 0.3s;
+      border: 1px solid #00bfff;
+      padding: 4px 10px;
+      border-radius: 5px;
+    }
+    .theme-switcher span:hover,
+    .theme-switcher span.active {
+      background: rgba(0, 191, 255, 0.4);
       color: #ffffff;
     }
     .wrapper {
@@ -37,12 +61,13 @@
       justify-content: space-between;
       align-items: flex-start;
       max-width: 1200px;
-      margin: 60px auto;
+      margin: 100px auto 0;
       padding: 0 20px;
     }
     .left-section {
       flex: 0 0 320px;
       text-align: left;
+      z-index: 5;
     }
     .left-section img {
       max-width: 200px;
@@ -69,29 +94,37 @@
       line-height: 1.8;
       margin-bottom: 30px;
     }
-    .center-section {
-      flex: 1;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-content: flex-start;
-      gap: 20px;
-      padding: 20px;
+    .floating-words {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
     }
-    .center-section a {
-      display: inline-block;
-      padding: 12px 24px;
+    .floating-words span {
+      position: absolute;
       color: #00bfff;
-      text-decoration: none;
-      font-weight: bold;
-      border: 1px solid #00bfff;
-      border-radius: 8px;
-      background: rgba(0, 191, 255, 0.1);
+      font-size: 16px;
+      pointer-events: auto;
+      cursor: pointer;
+      animation: float 8s ease-in-out infinite;
       transition: all 0.3s;
+      white-space: nowrap;
     }
-    .center-section a:hover {
-      background: rgba(0, 191, 255, 0.4);
+    .floating-words span.with-border {
+      border: 1px solid currentColor;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+    .floating-words span:hover {
       color: #ffffff;
+    }
+    @keyframes float {
+      0% { transform: translateY(0);}
+      50% { transform: translateY(-10px);}
+      100% { transform: translateY(0);}
     }
     .floating-tags {
       position: fixed;
@@ -124,6 +157,14 @@
 
   <a href="/contact.html" class="contact-btn">📡 联系我</a>
 
+  <div class="theme-switcher">
+    <span data-theme="about" class="active">校内外课程</span>
+    <span data-theme="projects">项目</span>
+    <span data-theme="experience">实习</span>
+    <span data-theme="competitions">比赛</span>
+    <span data-theme="activity">活动</span>
+  </div>
+
   <div class="wrapper">
     <div class="left-section">
       <img src="../assets/images/me.jpg" alt="LinLyra头像" />
@@ -132,18 +173,15 @@
       <div class="major">双专业：数据科学 & 商业分析</div>
       <div class="motto">用学习，改变世界。</div>
       <div class="bio">
-        我热衷于用数据探索真实世界，也喜欢用技术创造新的可能。<br><br>
-        我坚信，技术与商业理解的结合，能让数据不仅仅是数字，更成为驱动决策与创新的力量。
+        我是林珑（玲珑），目前就读于悉尼大学数据科学与商业分析双专业。<br><br>
+        我对数据背后的商业价值充满兴趣，热衷将统计分析、机器学习与产品思维结合，用数据驱动更精准的商业决策和用户体验优化。<br><br>
+        在学习和项目实践中，我深入探索过数据建模、可视化、用户行为分析及 AI 产品的设计与落地，也不断培养用数据讲故事、解决实际问题的能力。<br><br>
+        我希望成长为一名既懂技术，又具备商业洞察力的数据专业人士，为企业创造实质的价值。
       </div>
     </div>
-    <div class="center-section">
-      <a href="/about.html">校内外课程</a>
-      <a href="/projects.html">项目</a>
-      <a href="/experience.html">实习</a>
-      <a href="/competitions.html">比赛</a>
-      <a href="/Activity.html">活动</a>
-    </div>
   </div>
+
+  <div class="floating-words"></div>
 
   <div class="floating-tags">
     <span>🏀 体育迷</span>
@@ -152,7 +190,7 @@
     <span>🎶 琵琶十级</span>
     <span>♟️ 围棋四段</span>
     <span>🤝 公益人</span>
-    <span>😊 大e人/span>
+    <span>😊 大E人</span>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
@@ -160,7 +198,59 @@
     particlesJS.load('particles-js', '../assets/animations/particlesjs-config.json?v=' + Math.random(), function() {
       console.log('Particles.js config loaded');
     });
+
+    const tags = {
+      about: [
+        { text: "机器学习", color: "#00bfff", border: false },
+        { text: "数据可视化", color: "#ff69b4", border: true },
+        { text: "统计建模", color: "#00ff99", border: false }
+      ],
+      projects: [
+        { text: "智能客服分析", color: "#ffcc00", border: true },
+        { text: "消费预测挑战赛", color: "#ff69b4", border: false },
+        { text: "用户画像分析", color: "#00bfff", border: true }
+      ],
+      experience: [
+        { text: "产品数据分析", color: "#00bfff", border: false },
+        { text: "AI产品设计", color: "#ff69b4", border: true }
+      ],
+      competitions: [
+        { text: "全国大数据竞赛", color: "#ffcc00", border: true },
+        { text: "预测建模比赛", color: "#00ff99", border: false }
+      ],
+      activity: [
+        { text: "TechTalk分享", color: "#ff69b4", border: false },
+        { text: "产品训练营", color: "#00bfff", border: true }
+      ]
+    };
+
+    document.querySelectorAll('.theme-switcher span').forEach(el => {
+      el.addEventListener('click', () => {
+        document.querySelectorAll('.theme-switcher span').forEach(s => s.classList.remove('active'));
+        el.classList.add('active');
+        showTags(el.dataset.theme);
+      });
+    });
+
+    function showTags(theme) {
+      const container = document.querySelector('.floating-words');
+      container.innerHTML = '';
+      tags[theme].forEach(tag => {
+        const el = document.createElement('span');
+        el.textContent = tag.text;
+        el.style.top = Math.random() * 80 + '%';
+        el.style.left = Math.random() * 80 + '%';
+        el.style.color = tag.color;
+        if (tag.border) {
+          el.classList.add('with-border');
+        }
+        container.appendChild(el);
+      });
+    }
+
+    showTags('about');
   </script>
 </body>
 </html>
+
 
