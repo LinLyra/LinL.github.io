@@ -28,18 +28,70 @@
   </script>
 
   <style>
+    <body>
+  <div id="particles-js"></div>
+
+  <!-- Contact Button -->
+  <a href="/contact.html" class="contact-btn">📡 Contact</a>
+
+  <div class="content">
+    <img src="../assets/images/me.jpg" class="avatar"/>
+    <h1>LinLyra</h1>
+    <p class="school">University of Sydney · Bachelor of Science</p>
+    <p class="major">Double major Data Science & Business Analytics</p>
+    
+    <p class="motto">Learn to change the world.</p>
+    <p class="bio">
+      I’m a lifelong learner, curiosity-driven and creative thinker, passionate about data science, AI products, and digital consulting.
+      I love exploring how technology and business strategy intersect to drive impactful solutions and meaningful change.
+    </p>
+  </div>
+
+  <!-- Dashboard Buttons -->
+  <div class="dashboard">
+    <a href="/experience.html" class="btn" style="top: 20%; left: 25%;">🪐 Experience</a>
+    <a href="/projects.html" class="btn" style="top: 35%; left: 60%;">🚀 Projects</a>
+    <a href="/learning.html" class="btn" style="top: 50%; left: 40%;">🌟 Learning</a>
+    <a href="/competitions.html" class="btn" style="top: 65%; left: 20%;">✨ Competitions</a>
+    <a href="/Activity.html" class="btn" style="top: 65%; left: 65%;">🌌 Events</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS.load('particles-js', '../assets/animations/particlesjs-config.json?v=' + Math.random(), function() {
+      console.log('Particles.js config loaded');
+    });
+  </script>
+
+  <style>
     body {
       margin: 0;
       background: black;
       color: white;
       font-family: "Segoe UI", sans-serif;
     }
+
     #particles-js {
       position: fixed;
       width: 100%;
       height: 100%;
       z-index: -1;
     }
+
+    .contact-btn {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      color: #ff69b4;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+    .contact-btn:hover {
+      color: #ff1493;
+    }
+
     .content {
       position: relative;
       text-align: center;
@@ -57,10 +109,10 @@
       font-size: 36px;
       font-weight: bold;
     }
-    .school {
+    .school, .major {
       font-size: 18px;
       color: #ff69b4;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
     .motto {
       font-size: 20px;
@@ -73,19 +125,24 @@
       max-width: 700px;
       margin: 0 auto 30px;
     }
-    .buttons a {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 24px;
-      background: #ff69b4;
-      color: white;
+
+    .dashboard {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+    }
+    .btn {
+      position: absolute;
+      color: #ff69b4;
       text-decoration: none;
-      border-radius: 5px;
+      font-size: 18px;
       font-weight: bold;
       transition: all 0.3s;
+      border-bottom: 2px solid transparent;
     }
-    .buttons a:hover {
-      background: #ff1493;
+    .btn:hover {
+      border-bottom: 2px solid #ff69b4;
+      color: #ff1493;
     }
   </style>
 </body>
