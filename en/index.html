@@ -1,12 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LinLyra's Universe</title>
-</head>
-<body style="background: #000; color: #fff; padding: 50px;">
-  <h1>Welcome to LinLyra's Universe</h1>
-  <p>This is the English website. More content coming soon!</p>
+<body>
+  <div id="particles-js"></div>
+
+  <div class="content">
+    <img src="assets/images/my-avatar.png" alt="My Avatar" class="avatar" />
+    <h1>LinLyra</h1>
+    <p>University of Sydney · Data Science & Business Analytics</p>
+    <p>Learn to change the world | Lifelong learner | Curiosity-driven data explorer</p>
+
+    <div class="buttons">
+      <a href="/about.html">About Me</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS.load('particles-js', 'assets/particles.json', function() {
+      console.log('Particles.js config loaded');
+    });
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: white;
+      font-family: sans-serif;
+    }
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    .content {
+      position: relative;
+      text-align: center;
+      padding: 50px;
+    }
+    .avatar {
+      max-width: 200px;
+      border-radius: 50%;
+    }
+    .buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background: #ff69b4;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
 </body>
-</html>
