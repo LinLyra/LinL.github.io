@@ -17,7 +17,7 @@
       position: fixed;
       width: 100%;
       height: 100%;
-      z-index: -1;
+      z-index: -2;
     }
     .contact-btn {
       position: fixed;
@@ -37,6 +37,8 @@
       padding: 50px 20px;
       max-width: 900px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
     .avatar {
       max-width: 200px;
@@ -82,6 +84,25 @@
       background: #ff69b4;
       color: black;
     }
+
+    /* Floating tags style */
+    .floating-tags span {
+      position: absolute;
+      color: #ff69b4;
+      opacity: 0.6;
+      font-size: 14px;
+      animation: float linear infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) translateX(0);
+      }
+      100% {
+        transform: translateY(-120vh) translateX(50vw);
+      }
+    }
   </style>
 </head>
 <body>
@@ -89,9 +110,20 @@
 
   <a href="/contact.html" class="contact-btn">📡 Contact</a>
 
+  <!-- Floating tags -->
+  <div class="floating-tags">
+    <span style="left: 10%;">🏀 Basketball fan</span>
+    <span style="left: 25%;">✈️ Travel lover</span>
+    <span style="left: 40%;">📷 Photography</span>
+    <span style="left: 55%;">🎶 Music lover</span>
+    <span style="left: 70%;">♟️ Board game fan</span>
+    <span style="left: 85%;">🤝 Volunteer</span>
+    <span style="left: 15%;">😊 Extrovert</span>
+  </div>
+
   <div class="content">
     <img src="../assets/images/me.jpg" class="avatar" />
-    <h1>Lin Long(Lyra)</h1>
+    <h1>Lin Long (Lyra)</h1>
     <p class="school">University of Sydney · Bachelor of Science</p>
     <p class="major">Double major in Data Science & Business Analytics</p>
     
@@ -100,12 +132,7 @@
        I’m a lifelong learner and curiosity-driven data enthusiast, passionate about uncovering insights and driving smarter decisions through data. 
        <br><br>
        My interests lie at the intersection of data science, AI products, and digital consulting, where I’m excited to create meaningful impact through technology and insights.
-       <br><br>
-       Technology × Data × Product × Business Understanding × User Needs = Actionable Solutions.
-       <br><br>
-       That’s the kind of data professional I’m becoming!
     </p>
-
 
     <div class="buttons">
       <a href="/about.html">About Me</a>
@@ -122,6 +149,12 @@
     particlesJS.load('particles-js', '../assets/animations/particlesjs-config.json?v=' + Math.random(), function() {
       console.log('Particles.js config loaded');
     });
+
+    // Random animation durations to vary tag speeds
+    document.querySelectorAll('.floating-tags span').forEach(tag => {
+      tag.style.animationDuration = (10 + Math.random() * 20) + "s";
+    });
   </script>
 </body>
 </html>
+
