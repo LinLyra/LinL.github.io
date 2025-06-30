@@ -26,7 +26,7 @@
       }
     },
     "opacity": {
-      "value": 0.9941154777366241,
+      "value": 0.5,
       "random": true,
       "anim": {
         "enable": true,
@@ -36,7 +36,7 @@
       }
     },
     "size": {
-      "value": 4.008530152163807,
+      "value": 4,
       "random": true,
       "anim": {
         "enable": false,
@@ -76,7 +76,7 @@
       },
       "onclick": {
         "enable": true,
-        "mode": "repulse"
+        "mode": "push"
       },
       "resize": true
     },
@@ -95,7 +95,7 @@
         "speed": 3
       },
       "repulse": {
-        "distance": 150,
+        "distance": 200,
         "duration": 0.4
       },
       "push": {
@@ -108,3 +108,5 @@
   },
   "retina_detect": true
 }
+
+
