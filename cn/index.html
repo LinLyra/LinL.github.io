@@ -122,9 +122,9 @@
   <!-- 导航 -->
   <div class="nav-bar">
     <a href="/about.html" class="nav-link">🪐 校内外课程</a>
-    <a href="/projects.html" class="nav-link">🚀 项目</a>
     <a href="/experience.html" class="nav-link">🛰️ 实习</a>
     <a href="/competitions.html" class="nav-link">🏆 比赛</a>
+    <a href="/projects.html" class="nav-link">🚀 项目</a>
     <a href="/activity.html" class="nav-link">🎉 活动</a>
     <a href="/contact.html" class="nav-link">📡 联系我</a>
   </div>
@@ -136,12 +136,12 @@
       <div class="name">林珑（玲珑）</div>
       <div class="school">悉尼大学 · 理学学士</div>
       <div class="major">双专业：数据科学 & 商业分析</div>
-      <div class="motto">用学习，改变世界。</div>
+      <div class="motto">Learn to Change the World.</div>
       <div class="bio">
-        我是林珑（玲珑），目前就读于悉尼大学数据科学与商业分析双专业。<br><br>
-        我对数据背后的商业价值充满兴趣，热衷将统计分析、机器学习与产品思维结合，用数据驱动更精准的商业决策和用户体验优化。<br><br>
-        在学习和项目实践中，我深入探索过数据建模、可视化、用户行为分析及 AI 产品的设计与落地，也不断培养用数据讲故事、解决实际问题的能力。<br><br>
-        我希望成长为一名既懂技术，又具备商业洞察力的数据专业人士，为企业创造实质的价值。
+        <b>lifelong learner</b>|<b>curiosity-driven data explorer</b>|<b>creative thinker</b>
+        我热衷于在数据科学、AI、数字化咨询与商业战略的交叉领域不断挖掘价值。<br><br>
+        在学习和项目实践中，我积累了数据建模、可视化、用户行为分析及 AI 产品落地的经验，也在不断提升用数据讲故事、解决实际问题的能力。<br><br>
+        我希望成长为一名既懂技术，又具备商业洞察力的数据人，用数据创造洞见与改变，赋能更美好的未来。
       </div>
     </div>
 
@@ -196,22 +196,32 @@
       "retina_detect": true
     });
 
-    // 星云文字
     const professionalWords = [
-      "机器学习", "用户画像分析", "消费预测挑战赛",
-      "智能客服分析", "产品数据分析", "数据建模",
-      "商业策略", "推荐系统", "增长黑客",
-      "用户体验", "AI产品设计", "数据可视化",
-      "统计模型", "LightGBM", "LLM产品",
-      "Prompt工程", "数据驱动决策", "模型部署",
-      "可解释性AI", "聚类分析", "用户留存",
-      "A/B测试", "情感分析", "智能推荐",
-      "BI工具", "大数据竞赛"
+  // 数据分析/统计
+    "机器学习", "因果推断", "聚类分析", "回归分析", "统计模型",
+    "数据驱动决策", "实验设计", "漏斗分析", "用户旅程分析", "分群分析",
+
+  // 数据工程/技术
+    "数据建模", "数据管道", "模型部署", "Apache Spark", "PowerBI",
+    "Tableau", "SQL", "Python", "R",
+
+  // BI / 可视化
+    "数据可视化", "产品数据分析",
+
+  // 商业分析 / 产品
+    "商业策略", "增长黑客", "用户体验", "用户留存", "ROI分析",
+    "营销自动化", "推荐系统", "A/B测试",
+
+  // AI相关
+  "Prompt工程", "AI产品设计", "可解释性AI", "AI审计", "LLM产品",
+
+  // 行业/交叉领域
+  "数字化咨询", "AI+ESG"
     ];
 
     const personalTags = [
       "🏀 体育迷", "✈️ 旅行爱好者", "📷 摄影",
-      "🎶 琵琶十级", "♟️ 围棋四段", "🤝 公益人", "😊 大E人"
+      "🎶 琵琶十级", "♟️ 围棋四段", "🤝 公益人", "😊 86%E人"
     ];
 
     const starfield = document.getElementById("starfield");
@@ -222,22 +232,6 @@
       "professional color4",
       "professional color5"
     ];
-
-    let y_positions = [];
-
-    const createWord = (text, cls) => {
-      const el = document.createElement("span");
-      el.textContent = text;
-      el.className = "floating-word " + cls;
-      el.style.fontSize = (12 + Math.random() * 5) + "px";
-
-      let top;
-      do {
-        top = Math.floor(Math.random() * 85);
-      } while (y_positions.includes(top));
-      y_positions.push(top);
-      el.style.top = top + "%";
-      
       
       const createWord = (text, cls) => {
       const el = document.createElement("span");
