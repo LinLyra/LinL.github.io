@@ -21,9 +21,10 @@
     }
     .nav-bar {
       position: fixed;
-      top: 20px;
+      top: 140px;
       right: 30px;
       display: flex;
+      flex-direction: column;
       gap: 15px;
       z-index: 20;
     }
@@ -80,8 +81,8 @@
     .floating-words {
       position: absolute;
       top: 0;
-      left: 420px;
-      width: calc(100% - 420px);
+      left: 450px;
+      width: calc(100% - 500px);
       height: 100%;
       pointer-events: none;
       z-index: 5;
@@ -143,10 +144,10 @@
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    particlesJS('particles-js',
-    {
+    // ✅ 恢复气泡背景 + 鼠标驱赶
+    particlesJS('particles-js', {
       "particles": {
-        "number": { "value": 120, "density": { "enable": true, "value_area": 800 } },
+        "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
         "color": { "value": "#ffffff" },
         "shape": { "type": "circle" },
         "opacity": {
@@ -159,13 +160,7 @@
           "random": true,
           "anim": { "enable": false }
         },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#ffffff",
-          "opacity": 0.4,
-          "width": 1
-        },
+        "line_linked": { "enable": false },
         "move": {
           "enable": true,
           "speed": 2,
@@ -198,13 +193,13 @@
     const professionalWords = [
       "机器学习", "用户画像分析", "消费预测挑战赛",
       "智能客服分析", "产品数据分析", "数据建模",
-      "商业策略", "NLP", "推荐系统",
-      "增长黑客", "用户体验", "AI产品设计",
-      "数据可视化", "统计模型", "LightGBM",
-      "LLM产品", "Prompt工程", "数据驱动决策",
-      "模型部署", "可解释性AI", "聚类分析",
-      "用户留存", "A/B测试", "情感分析",
-      "智能推荐", "BI工具", "大数据竞赛"
+      "商业策略", "推荐系统", "增长黑客",
+      "用户体验", "AI产品设计", "数据可视化",
+      "统计模型", "LightGBM", "LLM产品",
+      "Prompt工程", "数据驱动决策", "模型部署",
+      "可解释性AI", "聚类分析", "用户留存",
+      "A/B测试", "情感分析", "智能推荐",
+      "BI工具", "大数据竞赛"
     ];
 
     const personalTags = [
@@ -226,7 +221,7 @@
       const col = cell % cols;
       const top = (row * (100 / rows)) + Math.random() * (100 / rows * 0.4);
       const leftPercent = (col * (100 / cols)) + Math.random() * (100 / cols * 0.5);
-      const leftPx = leftPercent / 100 * (window.innerWidth - 420) + 420;
+      const leftPx = leftPercent / 100 * (window.innerWidth - 500) + 450;
       return { top, left: leftPx };
     }
 
@@ -247,7 +242,7 @@
       const { top, left } = getGridPosition();
       el.style.top = top + "%";
       el.style.left = left + "px";
-      el.style.fontSize = (12 + Math.random() * 4) + "px";
+      el.style.fontSize = (12 + Math.random() * 3) + "px";
       container.appendChild(el);
     });
 
@@ -263,5 +258,4 @@
   </script>
 </body>
 </html>
-
 
