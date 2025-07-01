@@ -23,32 +23,33 @@
       position: fixed;
       top: 20px;
       right: 30px;
-      z-index: 10;
+      z-index: 20;
     }
     .nav-link {
-      color: #00bfff;
+      color: #00ffff;
       text-decoration: none;
-      margin: 0 12px;
+      margin: 0 8px;
       font-size: 16px;
       transition: color 0.3s;
     }
     .nav-link:hover {
       color: #ffffff;
-      text-shadow: 0 0 10px #00bfff;
+      text-shadow: 0 0 10px #00ffff;
     }
     .wrapper {
       display: flex;
-      justify-content: center;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 80px 20px;
-      z-index: 10;
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 20px;
+      justify-content: flex-start;
+      align-items: flex-start;
       position: relative;
+      z-index: 10;
     }
     .left-section {
-      flex: 0 0 320px;
+      width: 320px;
+      flex-shrink: 0;
       text-align: left;
-      color: #ffffff;
     }
     .left-section img {
       max-width: 200px;
@@ -62,7 +63,7 @@
     }
     .school, .major {
       font-size: 18px;
-      color: #00bfff;
+      color: #00ffff;
       margin-bottom: 10px;
     }
     .motto {
@@ -76,37 +77,36 @@
       margin-bottom: 30px;
     }
     .floating-words {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 2;
+      z-index: 5;
     }
     .floating-words span {
       position: absolute;
       font-family: "Orbitron", sans-serif;
       font-size: 14px;
       opacity: 0.8;
-      pointer-events: none;
       white-space: nowrap;
       animation: float 8s ease-in-out infinite;
       transition: all 0.3s;
     }
-    .floating-words span.professional {
-      color: #00bfff;
-    }
-    .floating-words span.professional.alt1 { color: #ff69b4; }
-    .floating-words span.professional.alt2 { color: #ffcc00; }
-    .floating-words span.professional.alt3 { color: #00ff99; }
-    .floating-words span.professional.alt4 { color: #ff9933; }
-    .floating-words span.personal {
-      background: rgba(255,255,255,0.1);
+    /* 专业词不同色系 */
+    .professional.color1 { color: #00ffff; }
+    .professional.color2 { color: #e066ff; }
+    .professional.color3 { color: #ff9933; }
+    .professional.color4 { color: #ffd700; }
+    .professional.color5 { color: #1e90ff; }
+    /* 人物标签 */
+    .personal {
+      background: rgba(255,105,180,0.2);
       padding: 4px 8px;
-      border-radius: 12px;
+      border-radius: 10px;
       color: #ff69b4;
-      font-size: 12px;
+      font-size: 13px;
     }
     @keyframes float {
       0% { transform: translateY(0);}
@@ -118,17 +118,15 @@
 <body>
   <div id="particles-js"></div>
 
-  <!-- 顶部导航栏 -->
   <div class="nav-bar">
-    <a href="/about.html" class="nav-link">校内外课程</a>
-    <a href="/projects.html" class="nav-link">项目</a>
-    <a href="/experience.html" class="nav-link">实习</a>
-    <a href="/competitions.html" class="nav-link">比赛</a>
-    <a href="/activity.html" class="nav-link">活动</a>
-    <a href="/contact.html" class="nav-link">联系我</a>
+    <a href="/about.html" class="nav-link">🪐 校内外课程</a>
+    <a href="/projects.html" class="nav-link">🚀 项目</a>
+    <a href="/experience.html" class="nav-link">🛰️ 实习</a>
+    <a href="/competitions.html" class="nav-link">🏆 比赛</a>
+    <a href="/activity.html" class="nav-link">🎉 活动</a>
+    <a href="/contact.html" class="nav-link">📡 联系我</a>
   </div>
 
-  <!-- 左侧人物介绍 -->
   <div class="wrapper">
     <div class="left-section">
       <img src="../assets/images/me.jpg" alt="LinLyra头像" />
@@ -145,7 +143,6 @@
     </div>
   </div>
 
-  <!-- 漂浮星云 -->
   <div class="floating-words" id="floating-words"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
@@ -171,7 +168,7 @@
       "🎶 琵琶十级", "♟️ 围棋四段", "🤝 公益人", "😊 大E人"
     ];
 
-    const colors = ["professional", "professional alt1", "professional alt2", "professional alt3", "professional alt4"];
+    const colors = ["professional color1", "professional color2", "professional color3", "professional color4", "professional color5"];
     const container = document.getElementById('floating-words');
 
     professionalWords.forEach(word => {
@@ -179,7 +176,7 @@
       el.textContent = word;
       el.className = colors[Math.floor(Math.random() * colors.length)];
       el.style.top = Math.random() * 90 + '%';
-      el.style.left = Math.random() * 90 + '%';
+      el.style.left = (35 + Math.random() * 60) + '%'; // 保证在右半边漂浮
       el.style.fontSize = (12 + Math.random() * 10) + "px";
       container.appendChild(el);
     });
@@ -189,11 +186,12 @@
       el.textContent = word;
       el.className = "personal";
       el.style.top = Math.random() * 90 + '%';
-      el.style.left = Math.random() * 90 + '%';
+      el.style.left = (35 + Math.random() * 60) + '%';
       container.appendChild(el);
     });
   </script>
 </body>
 </html>
+
 
 
