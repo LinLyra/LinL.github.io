@@ -19,40 +19,47 @@
       height: 100%;
       z-index: -2;
     }
+
+    /* 导航按钮 */
     .nav-bar {
       position: fixed;
-      top: 140px;
+      top: 30px;
       right: 30px;
       display: flex;
       flex-direction: column;
-      gap: 15px;
-      z-index: 20;
+      gap: 12px;
+      z-index: 30;
     }
     .nav-link {
       color: #00ffff;
       text-decoration: none;
-      font-size: 16px;
+      font-size: 20px;
+      font-weight: bold;
       letter-spacing: 1px;
-      text-shadow: 0 0 5px #00ffff;
+      text-shadow: 0 0 8px #00ffff;
       transition: all 0.3s;
     }
     .nav-link:hover {
       color: #ffffff;
       text-shadow: 0 0 15px #00ffff;
     }
+
     .wrapper {
       display: flex;
-      max-width: 1200px;
-      margin: 100px auto;
-      padding: 0 20px;
-      align-items: flex-start;
+      height: 100vh;
+      width: 100%;
       position: relative;
       z-index: 10;
     }
     .left-section {
-      width: 400px;
-      flex-shrink: 0;
+      flex: 0 0 40%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: left;
+      padding-left: 50px;
+      box-sizing: border-box;
     }
     .left-section img {
       max-width: 220px;
@@ -77,39 +84,38 @@
     .bio {
       font-size: 14px;
       line-height: 1.6;
+      max-width: 400px;
     }
-    .floating-words {
-      position: absolute;
-      top: 0;
-      left: 450px;
-      width: calc(100% - 500px);
-      height: 100%;
-      pointer-events: none;
-      z-index: 5;
+
+    /* 星云容器 */
+    .starfield {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
     }
-    .floating-words span {
+    .floating-word {
       position: absolute;
       white-space: nowrap;
       opacity: 0.8;
-      animation: float 6s ease-in-out infinite;
-      font-family: 'Audiowide', sans-serif;
+      animation: float 10s infinite ease-in-out;
     }
     .professional.color1 { color: #e066ff; }
     .professional.color2 { color: #ff9933; }
     .professional.color3 { color: #ffd700; }
     .professional.color4 { color: #1e90ff; }
     .professional.color5 { color: #39ff14; }
+
     .personal {
       background: rgba(255, 105, 180, 0.2);
       color: #ff69b4;
-      padding: 4px 10px;
-      border-radius: 8px;
+      padding: 3px 8px;
+      border-radius: 6px;
       font-size: 12px;
     }
     @keyframes float {
-      0% { transform: translateY(0);}
-      50% { transform: translateY(-10px);}
-      100% { transform: translateY(0);}
+      0% { transform: translateY(0px);}
+      50% { transform: translateY(-15px);}
+      100% { transform: translateY(0px);}
     }
   </style>
 </head>
@@ -139,12 +145,11 @@
         我希望成长为一名既懂技术，又具备商业洞察力的数据专业人士，为企业创造实质的价值。
       </div>
     </div>
-    <div class="floating-words" id="floating-words"></div>
+    <div class="starfield" id="starfield"></div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    // ✅ 恢复气泡背景 + 鼠标驱赶
     particlesJS('particles-js', {
       "particles": {
         "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
@@ -207,24 +212,7 @@
       "🎶 琵琶十级", "♟️ 围棋四段", "🤝 公益人", "😊 大E人"
     ];
 
-    const rows = 8;
-    const cols = 8;
-    const usedCells = new Set();
-
-    function getGridPosition() {
-      let cell;
-      do {
-        cell = Math.floor(Math.random() * rows * cols);
-      } while (usedCells.has(cell));
-      usedCells.add(cell);
-      const row = Math.floor(cell / cols);
-      const col = cell % cols;
-      const top = (row * (100 / rows)) + Math.random() * (100 / rows * 0.4);
-      const leftPercent = (col * (100 / cols)) + Math.random() * (100 / cols * 0.5);
-      const leftPx = leftPercent / 100 * (window.innerWidth - 500) + 450;
-      return { top, left: leftPx };
-    }
-
+    const starfield = document.getElementById("starfield");
     const colors = [
       "professional color1",
       "professional color2",
@@ -233,29 +221,23 @@
       "professional color5"
     ];
 
-    const container = document.getElementById('floating-words');
+    const createWord = (text, cls) => {
+      const el = document.createElement("span");
+      el.textContent = text;
+      el.className = cls;
+      el.style.fontSize = (12 + Math.random() * 4) + "px";
+      el.style.top = Math.random() * 80 + "%";
+      el.style.left = (10 + Math.random() * 80) + "%";
+      starfield.appendChild(el);
+    };
 
-    professionalWords.forEach(word => {
-      const el = document.createElement('span');
-      el.textContent = word;
-      el.className = colors[Math.floor(Math.random() * colors.length)];
-      const { top, left } = getGridPosition();
-      el.style.top = top + "%";
-      el.style.left = left + "px";
-      el.style.fontSize = (12 + Math.random() * 3) + "px";
-      container.appendChild(el);
+    professionalWords.forEach(w => {
+      const c = colors[Math.floor(Math.random() * colors.length)];
+      createWord(w, c);
     });
-
-    personalTags.forEach(word => {
-      const el = document.createElement('span');
-      el.textContent = word;
-      el.className = "personal";
-      const { top, left } = getGridPosition();
-      el.style.top = top + "%";
-      el.style.left = left + "px";
-      container.appendChild(el);
+    personalTags.forEach(w => {
+      createWord(w, "personal");
     });
   </script>
 </body>
 </html>
-
