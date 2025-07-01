@@ -239,15 +239,24 @@
       el.className = "floating-word " + cls;
       el.style.fontSize = (12 + Math.random() * 5) + "px";
 
-      // 左保留 40%，右保留 20%
-      const leftBoundary = window.innerWidth * 0.2;
-      const rightBoundary = window.innerWidth * 0.3;
+      const leftBoundary = window.innerWidth * 0.3;
+      const rightBoundary = window.innerWidth * 0.8;
+
       let left = leftBoundary + col * gridW;
-      if (left > rightBoundary- 60) left = rightBoundary - 60;
+
+      // 保证不会超出右边
+      if (left > rightBoundary - 60) left = rightBoundary - 60;
+
+      // 如果想再往左一点（比如整体左移 50px）：
+      left -= 50;
+
       el.style.left = left + "px";
 
-      const top = row * gridH + 20;
+      // 调整上下位置
+      const top = row * gridH + 20; // 往下移 60px
       el.style.top = top + "px";
+
+
 
       starfield.appendChild(el);
     }
