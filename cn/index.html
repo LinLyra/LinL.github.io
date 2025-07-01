@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LinLyra 宇宙</title>
-  <!-- 引入科技感字体 -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -20,38 +19,61 @@
       height: 100%;
       z-index: -2;
     }
-    .top-title {
-      text-align: center;
-      font-family: "Fira Code", monospace;
-      font-size: 18px;
-      color: #888888;
-      margin: 30px 0 10px;
-      letter-spacing: 1px;
+    .nav-bar {
+      position: fixed;
+      top: 20px;
+      right: 30px;
       z-index: 10;
     }
-    .theme-buttons {
-      text-align: center;
-      margin-bottom: 40px;
+    .nav-link {
+      color: #00bfff;
+      text-decoration: none;
+      margin: 0 12px;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+    .nav-link:hover {
+      color: #ffffff;
+      text-shadow: 0 0 10px #00bfff;
+    }
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 80px 20px;
       z-index: 10;
       position: relative;
     }
-    .theme-buttons a {
-      display: inline-block;
-      margin: 0 10px;
-      padding: 10px 20px;
-      color: #00bfff;
-      text-decoration: none;
-      font-weight: bold;
-      font-family: "Orbitron", sans-serif;
-      font-size: 16px;
-      border: 1px solid #00bfff;
-      border-radius: 5px;
-      background: rgba(0, 191, 255, 0.1);
-      transition: all 0.3s;
-    }
-    .theme-buttons a:hover {
-      background: rgba(0, 191, 255, 0.4);
+    .left-section {
+      flex: 0 0 320px;
+      text-align: left;
       color: #ffffff;
+    }
+    .left-section img {
+      max-width: 200px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+    .name {
+      font-size: 36px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .school, .major {
+      font-size: 18px;
+      color: #00bfff;
+      margin-bottom: 10px;
+    }
+    .motto {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 20px 0 10px;
+    }
+    .bio {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 30px;
     }
     .floating-words {
       position: absolute;
@@ -60,24 +82,32 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 5;
+      z-index: 2;
     }
     .floating-words span {
       position: absolute;
       font-family: "Orbitron", sans-serif;
-      color: #00bfff;
       font-size: 14px;
       opacity: 0.8;
       pointer-events: none;
-      animation: float 8s ease-in-out infinite;
       white-space: nowrap;
-      transition: color 0.3s;
+      animation: float 8s ease-in-out infinite;
+      transition: all 0.3s;
     }
-    .floating-words span.color1 { color: #00bfff; }
-    .floating-words span.color2 { color: #ff69b4; }
-    .floating-words span.color3 { color: #ffcc00; }
-    .floating-words span.color4 { color: #00ff99; }
-    .floating-words span.color5 { color: #ff9933; }
+    .floating-words span.professional {
+      color: #00bfff;
+    }
+    .floating-words span.professional.alt1 { color: #ff69b4; }
+    .floating-words span.professional.alt2 { color: #ffcc00; }
+    .floating-words span.professional.alt3 { color: #00ff99; }
+    .floating-words span.professional.alt4 { color: #ff9933; }
+    .floating-words span.personal {
+      background: rgba(255,255,255,0.1);
+      padding: 4px 8px;
+      border-radius: 12px;
+      color: #ff69b4;
+      font-size: 12px;
+    }
     @keyframes float {
       0% { transform: translateY(0);}
       50% { transform: translateY(-10px);}
@@ -88,18 +118,34 @@
 <body>
   <div id="particles-js"></div>
 
-  <div class="top-title">
-    在我们的故事边缘，我潦草地写下了永丰的片段
+  <!-- 顶部导航栏 -->
+  <div class="nav-bar">
+    <a href="/about.html" class="nav-link">校内外课程</a>
+    <a href="/projects.html" class="nav-link">项目</a>
+    <a href="/experience.html" class="nav-link">实习</a>
+    <a href="/competitions.html" class="nav-link">比赛</a>
+    <a href="/activity.html" class="nav-link">活动</a>
+    <a href="/contact.html" class="nav-link">联系我</a>
   </div>
 
-  <div class="theme-buttons">
-    <a href="/about.html">校内外课程</a>
-    <a href="/projects.html">项目</a>
-    <a href="/experience.html">实习</a>
-    <a href="/competitions.html">比赛</a>
-    <a href="/activity.html">活动</a>
+  <!-- 左侧人物介绍 -->
+  <div class="wrapper">
+    <div class="left-section">
+      <img src="../assets/images/me.jpg" alt="LinLyra头像" />
+      <div class="name">林珑（玲珑）</div>
+      <div class="school">悉尼大学 · 理学学士</div>
+      <div class="major">双专业：数据科学 & 商业分析</div>
+      <div class="motto">用学习，改变世界。</div>
+      <div class="bio">
+        我是林珑（玲珑），目前就读于悉尼大学数据科学与商业分析双专业。<br><br>
+        我对数据背后的商业价值充满兴趣，热衷将统计分析、机器学习与产品思维结合，用数据驱动更精准的商业决策和用户体验优化。<br><br>
+        在学习和项目实践中，我深入探索过数据建模、可视化、用户行为分析及 AI 产品的设计与落地，也不断培养用数据讲故事、解决实际问题的能力。<br><br>
+        我希望成长为一名既懂技术，又具备商业洞察力的数据专业人士，为企业创造实质的价值。
+      </div>
+    </div>
   </div>
 
+  <!-- 漂浮星云 -->
   <div class="floating-words" id="floating-words"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
@@ -108,7 +154,7 @@
       console.log('Particles.js config loaded');
     });
 
-    const words = [
+    const professionalWords = [
       "机器学习", "用户画像分析", "消费预测挑战赛",
       "智能客服分析", "产品数据分析", "数据建模",
       "商业策略", "NLP", "推荐系统",
@@ -120,16 +166,30 @@
       "智能推荐", "BI工具", "大数据竞赛"
     ];
 
-    const colors = ["color1", "color2", "color3", "color4", "color5"];
+    const personalTags = [
+      "🏀 体育迷", "✈️ 旅行爱好者", "📷 摄影",
+      "🎶 琵琶十级", "♟️ 围棋四段", "🤝 公益人", "😊 大E人"
+    ];
+
+    const colors = ["professional", "professional alt1", "professional alt2", "professional alt3", "professional alt4"];
     const container = document.getElementById('floating-words');
 
-    words.forEach(word => {
+    professionalWords.forEach(word => {
       const el = document.createElement('span');
       el.textContent = word;
-      el.classList.add(colors[Math.floor(Math.random() * colors.length)]);
+      el.className = colors[Math.floor(Math.random() * colors.length)];
       el.style.top = Math.random() * 90 + '%';
       el.style.left = Math.random() * 90 + '%';
       el.style.fontSize = (12 + Math.random() * 10) + "px";
+      container.appendChild(el);
+    });
+
+    personalTags.forEach(word => {
+      const el = document.createElement('span');
+      el.textContent = word;
+      el.className = "personal";
+      el.style.top = Math.random() * 90 + '%';
+      el.style.left = Math.random() * 90 + '%';
       container.appendChild(el);
     });
   </script>
