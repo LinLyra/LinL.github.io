@@ -9,9 +9,9 @@
     body {
       margin: 0;
       background: black;
-      overflow: hidden;
       color: white;
       font-family: 'Audiowide', sans-serif;
+      overflow: hidden;
     }
     #particles-js {
       position: fixed;
@@ -19,36 +19,32 @@
       height: 100%;
       z-index: -2;
     }
-
-    /* 导航按钮 */
+    /* 导航条 */
     .nav-bar {
       position: fixed;
-      top: 30px;
-      right: 30px;
+      top: 20px;
+      right: 40px;
       display: flex;
-      flex-direction: column;
-      gap: 12px;
-      z-index: 30;
+      gap: 20px;
+      z-index: 100;
     }
     .nav-link {
       color: #00ffff;
       text-decoration: none;
       font-size: 20px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      text-shadow: 0 0 8px #00ffff;
+      text-shadow: 0 0 10px #00ffff;
       transition: all 0.3s;
     }
     .nav-link:hover {
       color: #ffffff;
-      text-shadow: 0 0 15px #00ffff;
+      text-shadow: 0 0 20px #00ffff;
     }
 
+    /* 页面主体布局 */
     .wrapper {
       display: flex;
       height: 100vh;
       width: 100%;
-      position: relative;
       z-index: 10;
     }
     .left-section {
@@ -57,8 +53,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: left;
       padding-left: 50px;
+      text-align: left;
       box-sizing: border-box;
     }
     .left-section img {
@@ -67,7 +63,7 @@
       margin-bottom: 20px;
     }
     .name {
-      font-size: 32px;
+      font-size: 36px;
       font-weight: bold;
       margin: 10px 0;
     }
@@ -87,10 +83,11 @@
       max-width: 400px;
     }
 
-    /* 星云容器 */
+    /* 星云漂浮区 */
     .starfield {
       flex: 1;
       position: relative;
+      height: 100%;
       overflow: hidden;
     }
     .floating-word {
@@ -98,13 +95,13 @@
       white-space: nowrap;
       opacity: 0.8;
       animation: float 10s infinite ease-in-out;
+      pointer-events: none;
     }
     .professional.color1 { color: #e066ff; }
     .professional.color2 { color: #ff9933; }
     .professional.color3 { color: #ffd700; }
     .professional.color4 { color: #1e90ff; }
     .professional.color5 { color: #39ff14; }
-
     .personal {
       background: rgba(255, 105, 180, 0.2);
       color: #ff69b4;
@@ -114,7 +111,7 @@
     }
     @keyframes float {
       0% { transform: translateY(0px);}
-      50% { transform: translateY(-15px);}
+      50% { transform: translateY(-20px);}
       100% { transform: translateY(0px);}
     }
   </style>
@@ -122,6 +119,7 @@
 <body>
   <div id="particles-js"></div>
 
+  <!-- 导航 -->
   <div class="nav-bar">
     <a href="/about.html" class="nav-link">🪐 校内外课程</a>
     <a href="/projects.html" class="nav-link">🚀 项目</a>
@@ -132,6 +130,7 @@
   </div>
 
   <div class="wrapper">
+    <!-- 左边介绍 -->
     <div class="left-section">
       <img src="../assets/images/me.jpg" alt="LinLyra头像" />
       <div class="name">林珑（玲珑）</div>
@@ -145,6 +144,8 @@
         我希望成长为一名既懂技术，又具备商业洞察力的数据专业人士，为企业创造实质的价值。
       </div>
     </div>
+
+    <!-- 右半区域星云 -->
     <div class="starfield" id="starfield"></div>
   </div>
 
@@ -152,7 +153,7 @@
   <script>
     particlesJS('particles-js', {
       "particles": {
-        "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
         "color": { "value": "#ffffff" },
         "shape": { "type": "circle" },
         "opacity": {
@@ -195,6 +196,7 @@
       "retina_detect": true
     });
 
+    // 星云文字
     const professionalWords = [
       "机器学习", "用户画像分析", "消费预测挑战赛",
       "智能客服分析", "产品数据分析", "数据建模",
@@ -224,9 +226,9 @@
     const createWord = (text, cls) => {
       const el = document.createElement("span");
       el.textContent = text;
-      el.className = cls;
-      el.style.fontSize = (12 + Math.random() * 4) + "px";
-      el.style.top = Math.random() * 80 + "%";
+      el.className = "floating-word " + cls;
+      el.style.fontSize = (12 + Math.random() * 5) + "px";
+      el.style.top = Math.random() * 90 + "%";
       el.style.left = (10 + Math.random() * 80) + "%";
       starfield.appendChild(el);
     };
@@ -241,3 +243,4 @@
   </script>
 </body>
 </html>
+
