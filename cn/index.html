@@ -239,6 +239,15 @@
       el.className = "floating-word " + cls;
       el.style.fontSize = (12 + Math.random() * 5) + "px";
 
+      const leftOffset = left + (Math.random() * 30 - 15);
+      const topOffset = top + (Math.random() * 20 - 10);
+
+      el.style.left = leftOffset + "px";
+      el.style.top = topOffset + "px";
+
+      starfield.appendChild(el);
+
+
       const leftBoundary = window.innerWidth * 0.2;
       const rightBoundary = window.innerWidth * 0.8;
 
@@ -248,12 +257,12 @@
       if (left > rightBoundary - 60) left = rightBoundary - 60;
 
       // 如果想再往左一点（比如整体左移 50px）：
-      left -= 350;
+      left -= 500;
 
       el.style.left = left + "px";
 
       // 调整上下位置
-      const top = row * gridH + 120; // 往下移 60px
+      const top = row * gridH + 200; // 往下移 60px
       el.style.top = top + "px";
 
 
