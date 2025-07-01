@@ -39,7 +39,6 @@
       color: #ffffff;
       text-shadow: 0 0 20px #00ffff;
     }
-
     /* 页面主体布局 */
     .wrapper {
       display: flex;
@@ -82,7 +81,6 @@
       line-height: 1.6;
       max-width: 400px;
     }
-
     /* 星云漂浮区 */
     .starfield {
       flex: 1;
@@ -93,9 +91,9 @@
     .floating-word {
       position: absolute;
       white-space: nowrap;
-      opacity: 0.8;
-      animation: float 10s infinite ease-in-out;
+      opacity: 0.85;
       pointer-events: none;
+      animation: float 8s ease-in-out infinite alternate;
     }
     .professional.color1 { color: #e066ff; }
     .professional.color2 { color: #ff9933; }
@@ -111,8 +109,7 @@
     }
     @keyframes float {
       0% { transform: translateY(0px);}
-      50% { transform: translateY(-20px);}
-      100% { transform: translateY(0px);}
+      100% { transform: translateY(-10px);}
     }
   </style>
 </head>
@@ -138,14 +135,14 @@
       <div class="major">双专业：数据科学 & 商业分析</div>
       <div class="motto">Learn to Change the World.</div>
       <div class="bio">
-        <b>lifelong learner</b>|<b>curiosity-driven data explorer</b>|<b>creative thinker</b>
+        <b>lifelong learner</b> | <b>curiosity-driven data explorer</b> | <b>creative thinker</b><br><br>
         我热衷于在数据科学、AI、数字化咨询与商业战略的交叉领域不断挖掘价值。<br><br>
         在学习和项目实践中，我积累了数据建模、可视化、用户行为分析及 AI 产品落地的经验，也在不断提升用数据讲故事、解决实际问题的能力。<br><br>
-        我希望成长为一名既懂技术，又具备商业洞察力的数据人，用数据创造洞见与改变，赋能更美好的未来。
+        我希望成长为一名既懂技术，又具备商业洞察力的数据人！
       </div>
     </div>
 
-    <!-- 右半区域星云 -->
+    <!-- 星云漂浮 -->
     <div class="starfield" id="starfield"></div>
   </div>
 
@@ -186,37 +183,22 @@
           "resize": true
         },
         "modes": {
-          "grab": { "distance": 400, "line_linked": { "opacity": 1 } },
-          "bubble": { "distance": 250, "size": 0, "duration": 2, "opacity": 0, "speed": 3 },
           "repulse": { "distance": 150, "duration": 0.4 },
-          "push": { "particles_nb": 4 },
-          "remove": { "particles_nb": 2 }
+          "push": { "particles_nb": 4 }
         }
       },
       "retina_detect": true
     });
 
     const professionalWords = [
-  // 数据分析/统计
-    "机器学习", "因果推断", "聚类分析", "回归分析", "统计模型",
-    "数据驱动决策", "实验设计", "漏斗分析", "用户旅程分析", "分群分析",
-
-  // 数据工程/技术
-    "数据建模", "数据管道", "模型部署", "Apache Spark", "PowerBI",
-    "Tableau", "SQL", "Python", "R",
-
-  // BI / 可视化
-    "数据可视化", "产品数据分析",
-
-  // 商业分析 / 产品
-    "商业策略", "增长黑客", "用户体验", "用户留存", "ROI分析",
-    "营销自动化", "推荐系统", "A/B测试",
-
-  // AI相关
-  "Prompt工程", "AI产品设计", "可解释性AI", "AI审计", "LLM产品",
-
-  // 行业/交叉领域
-  "数字化咨询", "AI+ESG"
+      "机器学习", "因果推断", "聚类分析", "回归分析", "统计模型",
+      "数据驱动决策", "实验设计", "漏斗分析", "用户旅程分析", "分群分析",
+      "数据建模", "数据管道", "模型部署", "Apache Spark", "PowerBI",
+      "Tableau", "SQL", "Python", "R",
+      "数据可视化", "产品数据分析", "商业策略", "增长黑客", "用户体验",
+      "用户留存", "ROI分析", "营销自动化", "推荐系统", "A/B测试",
+      "Prompt工程", "AI产品设计", "可解释性AI", "AI审计", "LLM产品",
+      "数字化咨询", "AI+ESG"
     ];
 
     const personalTags = [
@@ -232,45 +214,50 @@
       "professional color4",
       "professional color5"
     ];
-      
-      const createWord = (text, cls) => {
-      const el = document.createElement("span");
-      el.textContent = text;
-      el.className = "floating-word " + cls;
-      el.style.fontSize = (12 + Math.random() * 5) + "px";
-      el.style.top = Math.random() * 90 + "%";
-      el.style.left = (10 + Math.random() * 80) + "%";
-      starfield.appendChild(el);
-    };
 
     const rows = 10;
     const cols = 10;
-    const gridW = 80;
-    const gridH = 60;
+    const gridW = 70;
+    const gridH = 50;
     const gridUsed = Array.from({ length: rows }, () => Array(cols).fill(false));
 
-    const placeWord = (text, cls) => {
-     let tries = 0;
-     let row, col;
-     do {
+    function placeWord(text, cls) {
+      let tries = 0;
+      let row, col;
+      do {
         row = Math.floor(Math.random() * rows);
         col = Math.floor(Math.random() * cols);
         tries++;
-     } while (gridUsed[row][col] && tries < 100);
+      } while (gridUsed[row][col] && tries < 100);
 
-     if (tries >= 100) return; //放弃防死循环
+      if (tries >= 100) return;
 
-     gridUsed[row][col] = true;
+      gridUsed[row][col] = true;
 
-     const el = document.createElement("span");
-     el.textContent = text;
-     el.className = "floating-word " + cls;
-     el.style.fontSize = (12 + Math.random() * 5) + "px";
-     el.style.top = `${row * gridH}px`;
-     el.style.left = `${col * gridW}px`;
-     starfield.appendChild(el);
-     };
+      const el = document.createElement("span");
+      el.textContent = text;
+      el.className = "floating-word " + cls;
+      el.style.fontSize = (12 + Math.random() * 6) + "px";
 
+      // 左侧保留 40% 不放文字
+      const leftPadding = window.innerWidth * 0.42;
+      const rightPadding = window.innerWidth * 0.82;
+      let left = leftPadding + col * gridW;
+      if (left > rightPadding) left = rightPadding - 60;
+      el.style.left = left + "px";
+
+      const top = row * gridH + 20;
+      el.style.top = top + "px";
+      starfield.appendChild(el);
+    }
+
+    professionalWords.forEach(w => {
+      const c = colors[Math.floor(Math.random() * colors.length)];
+      placeWord(w, c);
+    });
+    personalTags.forEach(w => {
+      placeWord(w, "personal");
+    });
   </script>
 </body>
 </html>
