@@ -240,10 +240,10 @@
       el.style.fontSize = (12 + Math.random() * 5) + "px";
 
       // 左保留 40%，右保留 20%
-      const leftBoundary = window.innerWidth * 0.42;
-      const rightBoundary = window.innerWidth * 0.8;
+      const leftBoundary = window.innerWidth * 0.3;
+      const rightBoundary = window.innerWidth * 0.65;
       let left = leftBoundary + col * gridW;
-      if (left > rightBoundary) left = rightBoundary - 60;
+      if (left > rightBoundary- 60) left = rightBoundary - 60;
       el.style.left = left + "px";
 
       const top = row * gridH + 20;
