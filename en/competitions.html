@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LinLyra · Competitions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Audiowide', sans-serif;
+      color: #ffffff;
+      background: url("../assets/images/bg-competitions.jpg") center center no-repeat;
+      background-size: cover;
+      overflow-x: hidden;
+    }
+
+    .nav-bar {
+      position: fixed;
+      top: 20px;
+      right: 40px;
+      display: flex;
+      gap: 20px;
+      z-index: 100;
+    }
+    .nav-link {
+      color: #00ffff;
+      text-decoration: none;
+      font-size: 16px;
+      text-shadow: 0 0 10px #00ffff;
+      transition: all 0.3s;
+    }
+    .nav-link:hover {
+      color: #ffffff;
+      text-shadow: 0 0 20px #00ffff;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding-top: 120px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 48px;
+      color: #00ffff;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      max-width: 600px;
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0 auto;
+      color: #ddd;
+    }
+
+    #lottie-container {
+      width: 200px;
+      height: 200px;
+      margin: 20px auto;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 50px;
+    }
+
+    .card {
+      background: rgba(0, 255, 255, 0.1);
+      border: 1px solid #00ffff;
+      border-radius: 10px;
+      padding: 20px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      background: rgba(0, 255, 255, 0.3);
+      transform: translateY(-5px);
+    }
+
+    .card h2 {
+      color: #00ffff;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #ddd;
+      line-height: 1.5;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #ffffff;
+      text-decoration: none;
+      background: #00ffff;
+      padding: 8px 16px;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .card a:hover {
+      background: #ffffff;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-bar">
+    <a href="/cn/index.html" class="nav-link">🏠 首页</a>
+    <a href="/cn/experience.html" class="nav-link">🛰️ 实习</a>
+    <a href="/cn/projects.html" class="nav-link">🚀 项目</a>
+    <a href="/cn/contact.html" class="nav-link">📡 联系我</a>
+  </div>
+
+  <div class="header">
+    <div id="lottie-container"></div>
+    <h1>Competitions</h1>
+    <p>我热衷于参加各类数据科学、AI、商业分析等比赛。这些经历不仅锻炼了我的实战能力，也让我结识志同道合的伙伴，更在一次次挑战中，将理论与实践紧密结合。</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <h2>消费预测挑战赛</h2>
+      <p>利用 LightGBM 模型预测用户购买概率，并提出营销优化方案，提升 ROI。</p>
+      <a href="#">查看详情</a>
+    </div>
+    <div class="card">
+      <h2>用户画像分析</h2>
+      <p>基于聚类算法构建用户群体画像，为产品推荐提供数据支持。</p>
+      <a href="#">查看详情</a>
+    </div>
+    <div class="card">
+      <h2>数据可视化竞赛</h2>
+      <p>设计交互式仪表盘，直观展示业务指标变化，增强商业洞察。</p>
+      <a href="#">查看详情</a>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.1/lottie.min.js"></script>
+  <script>
+    lottie.loadAnimation({
+      container: document.getElementById('lottie-container'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: '../assets/animations/trophy.json' 
+    });
+  </script>
+</body>
+</html>
