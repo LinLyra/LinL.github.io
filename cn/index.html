@@ -215,8 +215,8 @@
       "professional color5"
     ];
 
-    const rows = 10;
-    const cols = 8;
+    const rows = 6;
+    const cols = 6;
     const gridW = 70;
     const gridH = 50;
     const gridUsed = Array.from({ length: rows }, () => Array(cols).fill(false));
@@ -239,7 +239,7 @@
       el.className = "floating-word " + cls;
       el.style.fontSize = (12 + Math.random() * 5) + "px";
 
-      const leftBoundary = window.innerWidth * 0.3;
+      const leftBoundary = window.innerWidth * 0.2;
       const rightBoundary = window.innerWidth * 0.8;
 
       let left = leftBoundary + col * gridW;
@@ -248,12 +248,12 @@
       if (left > rightBoundary - 60) left = rightBoundary - 60;
 
       // 如果想再往左一点（比如整体左移 50px）：
-      left -= 250;
+      left -= 350;
 
       el.style.left = left + "px";
 
       // 调整上下位置
-      const top = row * gridH + 80; // 往下移 60px
+      const top = row * gridH + 120; // 往下移 60px
       el.style.top = top + "px";
 
 
