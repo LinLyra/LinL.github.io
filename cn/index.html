@@ -243,13 +243,34 @@
       starfield.appendChild(el);
     };
 
-    professionalWords.forEach(w => {
-      const c = colors[Math.floor(Math.random() * colors.length)];
-      createWord(w, c);
-    });
-    personalTags.forEach(w => {
-      createWord(w, "personal");
-    });
+    const rows = 10;
+    const cols = 10;
+    const gridW = 80;
+    const gridH = 60;
+    const gridUsed = Array.from({ length: rows }, () => Array(cols).fill(false));
+
+    const placeWord = (text, cls) => {
+     let tries = 0;
+     let row, col;
+     do {
+        row = Math.floor(Math.random() * rows);
+        col = Math.floor(Math.random() * cols);
+        tries++;
+     } while (gridUsed[row][col] && tries < 100);
+
+     if (tries >= 100) return; //放弃防死循环
+
+     gridUsed[row][col] = true;
+
+     const el = document.createElement("span");
+     el.textContent = text;
+     el.className = "floating-word " + cls;
+     el.style.fontSize = (12 + Math.random() * 5) + "px";
+     el.style.top = `${row * gridH}px`;
+     el.style.left = `${col * gridW}px`;
+     starfield.appendChild(el);
+     };
+
   </script>
 </body>
 </html>
