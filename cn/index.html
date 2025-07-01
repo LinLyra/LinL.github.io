@@ -4,95 +4,54 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LinLyra 宇宙</title>
-  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
+  <!-- 引入科技感字体 -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       background: black;
+      overflow: hidden;
       color: white;
-      font-family: "Segoe UI", sans-serif;
-      overflow-x: hidden;
+      font-family: "Orbitron", sans-serif;
     }
     #particles-js {
       position: fixed;
       width: 100%;
       height: 100%;
-      z-index: -1;
+      z-index: -2;
     }
-    .contact-btn {
-      position: fixed;
-      top: 20px;
-      right: 30px;
+    .top-title {
+      text-align: center;
+      font-family: "Fira Code", monospace;
+      font-size: 18px;
+      color: #888888;
+      margin: 30px 0 10px;
+      letter-spacing: 1px;
+      z-index: 10;
+    }
+    .theme-buttons {
+      text-align: center;
+      margin-bottom: 40px;
+      z-index: 10;
+      position: relative;
+    }
+    .theme-buttons a {
+      display: inline-block;
+      margin: 0 10px;
+      padding: 10px 20px;
       color: #00bfff;
-      font-weight: bold;
       text-decoration: none;
-      font-size: 16px;
-      transition: all 0.3s;
-      z-index: 20;
-    }
-    .contact-btn:hover {
-      color: #ffffff;
-    }
-    .theme-switcher {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 20;
-      display: flex;
-      gap: 15px;
-    }
-    .theme-switcher span {
-      color: #00bfff;
-      cursor: pointer;
       font-weight: bold;
-      transition: color 0.3s;
+      font-family: "Orbitron", sans-serif;
+      font-size: 16px;
       border: 1px solid #00bfff;
-      padding: 4px 10px;
       border-radius: 5px;
+      background: rgba(0, 191, 255, 0.1);
+      transition: all 0.3s;
     }
-    .theme-switcher span:hover,
-    .theme-switcher span.active {
+    .theme-buttons a:hover {
       background: rgba(0, 191, 255, 0.4);
       color: #ffffff;
-    }
-    .wrapper {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      max-width: 1200px;
-      margin: 100px auto 0;
-      padding: 0 20px;
-    }
-    .left-section {
-      flex: 0 0 320px;
-      text-align: left;
-      z-index: 5;
-    }
-    .left-section img {
-      max-width: 200px;
-      border-radius: 50%;
-      margin-bottom: 20px;
-    }
-    .name {
-      font-size: 36px;
-      font-weight: bold;
-      margin: 10px 0;
-    }
-    .school, .major {
-      font-size: 18px;
-      color: #00bfff;
-      margin-bottom: 10px;
-    }
-    .motto {
-      font-size: 20px;
-      font-weight: bold;
-      margin: 20px 0 10px;
-    }
-    .bio {
-      font-size: 16px;
-      line-height: 1.8;
-      margin-bottom: 30px;
     }
     .floating-words {
       position: absolute;
@@ -101,97 +60,47 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 2;
+      z-index: 5;
     }
     .floating-words span {
       position: absolute;
+      font-family: "Orbitron", sans-serif;
       color: #00bfff;
-      font-size: 16px;
-      pointer-events: auto;
-      cursor: pointer;
+      font-size: 14px;
+      opacity: 0.8;
+      pointer-events: none;
       animation: float 8s ease-in-out infinite;
-      transition: all 0.3s;
       white-space: nowrap;
+      transition: color 0.3s;
     }
-    .floating-words span.with-border {
-      border: 1px solid currentColor;
-      padding: 4px 8px;
-      border-radius: 4px;
-    }
-    .floating-words span:hover {
-      color: #ffffff;
-    }
+    .floating-words span.color1 { color: #00bfff; }
+    .floating-words span.color2 { color: #ff69b4; }
+    .floating-words span.color3 { color: #ffcc00; }
+    .floating-words span.color4 { color: #00ff99; }
+    .floating-words span.color5 { color: #ff9933; }
     @keyframes float {
       0% { transform: translateY(0);}
       50% { transform: translateY(-10px);}
       100% { transform: translateY(0);}
-    }
-    .floating-tags {
-      position: fixed;
-      top: 50%;
-      right: 20px;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      z-index: 10;
-    }
-    .floating-tags span {
-      color: #00bfff;
-      font-size: 14px;
-      white-space: nowrap;
-      background: rgba(0, 191, 255, 0.1);
-      padding: 6px 10px;
-      border-radius: 5px;
-      border: 1px solid #00bfff;
-      transition: all 0.3s;
-    }
-    .floating-tags span:hover {
-      background: rgba(0, 191, 255, 0.4);
-      color: #ffffff;
     }
   </style>
 </head>
 <body>
   <div id="particles-js"></div>
 
-  <a href="/contact.html" class="contact-btn">📡 联系我</a>
-
-  <div class="theme-switcher">
-    <span data-theme="about" class="active">校内外课程</span>
-    <span data-theme="projects">项目</span>
-    <span data-theme="experience">实习</span>
-    <span data-theme="competitions">比赛</span>
-    <span data-theme="activity">活动</span>
+  <div class="top-title">
+    在我们的故事边缘，我潦草地写下了永丰的片段
   </div>
 
-  <div class="wrapper">
-    <div class="left-section">
-      <img src="../assets/images/me.jpg" alt="LinLyra头像" />
-      <div class="name">林珑（玲珑）</div>
-      <div class="school">悉尼大学 · 理学学士</div>
-      <div class="major">双专业：数据科学 & 商业分析</div>
-      <div class="motto">用学习，改变世界。</div>
-      <div class="bio">
-        我是林珑（玲珑），目前就读于悉尼大学数据科学与商业分析双专业。<br><br>
-        我对数据背后的商业价值充满兴趣，热衷将统计分析、机器学习与产品思维结合，用数据驱动更精准的商业决策和用户体验优化。<br><br>
-        在学习和项目实践中，我深入探索过数据建模、可视化、用户行为分析及 AI 产品的设计与落地，也不断培养用数据讲故事、解决实际问题的能力。<br><br>
-        我希望成长为一名既懂技术，又具备商业洞察力的数据专业人士，为企业创造实质的价值。
-      </div>
-    </div>
+  <div class="theme-buttons">
+    <a href="/about.html">校内外课程</a>
+    <a href="/projects.html">项目</a>
+    <a href="/experience.html">实习</a>
+    <a href="/competitions.html">比赛</a>
+    <a href="/activity.html">活动</a>
   </div>
 
-  <div class="floating-words"></div>
-
-  <div class="floating-tags">
-    <span>🏀 体育迷</span>
-    <span>✈️ 旅行爱好者</span>
-    <span>📷 摄影</span>
-    <span>🎶 琵琶十级</span>
-    <span>♟️ 围棋四段</span>
-    <span>🤝 公益人</span>
-    <span>😊 大E人</span>
-  </div>
+  <div class="floating-words" id="floating-words"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
@@ -199,56 +108,30 @@
       console.log('Particles.js config loaded');
     });
 
-    const tags = {
-      about: [
-        { text: "机器学习", color: "#00bfff", border: false },
-        { text: "数据可视化", color: "#ff69b4", border: true },
-        { text: "统计建模", color: "#00ff99", border: false }
-      ],
-      projects: [
-        { text: "智能客服分析", color: "#ffcc00", border: true },
-        { text: "消费预测挑战赛", color: "#ff69b4", border: false },
-        { text: "用户画像分析", color: "#00bfff", border: true }
-      ],
-      experience: [
-        { text: "产品数据分析", color: "#00bfff", border: false },
-        { text: "AI产品设计", color: "#ff69b4", border: true }
-      ],
-      competitions: [
-        { text: "全国大数据竞赛", color: "#ffcc00", border: true },
-        { text: "预测建模比赛", color: "#00ff99", border: false }
-      ],
-      activity: [
-        { text: "TechTalk分享", color: "#ff69b4", border: false },
-        { text: "产品训练营", color: "#00bfff", border: true }
-      ]
-    };
+    const words = [
+      "机器学习", "用户画像分析", "消费预测挑战赛",
+      "智能客服分析", "产品数据分析", "数据建模",
+      "商业策略", "NLP", "推荐系统",
+      "增长黑客", "用户体验", "AI产品设计",
+      "数据可视化", "统计模型", "LightGBM",
+      "LLM产品", "Prompt工程", "数据驱动决策",
+      "模型部署", "可解释性AI", "聚类分析",
+      "用户留存", "A/B测试", "情感分析",
+      "智能推荐", "BI工具", "大数据竞赛"
+    ];
 
-    document.querySelectorAll('.theme-switcher span').forEach(el => {
-      el.addEventListener('click', () => {
-        document.querySelectorAll('.theme-switcher span').forEach(s => s.classList.remove('active'));
-        el.classList.add('active');
-        showTags(el.dataset.theme);
-      });
+    const colors = ["color1", "color2", "color3", "color4", "color5"];
+    const container = document.getElementById('floating-words');
+
+    words.forEach(word => {
+      const el = document.createElement('span');
+      el.textContent = word;
+      el.classList.add(colors[Math.floor(Math.random() * colors.length)]);
+      el.style.top = Math.random() * 90 + '%';
+      el.style.left = Math.random() * 90 + '%';
+      el.style.fontSize = (12 + Math.random() * 10) + "px";
+      container.appendChild(el);
     });
-
-    function showTags(theme) {
-      const container = document.querySelector('.floating-words');
-      container.innerHTML = '';
-      tags[theme].forEach(tag => {
-        const el = document.createElement('span');
-        el.textContent = tag.text;
-        el.style.top = Math.random() * 80 + '%';
-        el.style.left = Math.random() * 80 + '%';
-        el.style.color = tag.color;
-        if (tag.border) {
-          el.classList.add('with-border');
-        }
-        container.appendChild(el);
-      });
-    }
-
-    showTags('about');
   </script>
 </body>
 </html>
