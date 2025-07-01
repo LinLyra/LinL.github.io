@@ -239,14 +239,6 @@
       el.className = "floating-word " + cls;
       el.style.fontSize = (12 + Math.random() * 5) + "px";
 
-      const leftOffset = left + (Math.random() * 30 - 15);
-      const topOffset = top + (Math.random() * 20 - 10);
-
-      el.style.left = leftOffset + "px";
-      el.style.top = topOffset + "px";
-
-      starfield.appendChild(el);
-
 
       const leftBoundary = window.innerWidth * 0.2;
       const rightBoundary = window.innerWidth * 0.8;
