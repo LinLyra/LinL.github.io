@@ -10,8 +10,7 @@
       margin: 0;
       font-family: 'Audiowide', sans-serif;
       color: #ffffff;
-      background: url("../assets/images/bg-comp.jpg") center center no-repeat;
-      background-size: cover;
+      background: black;
       overflow-x: hidden;
     }
 
@@ -23,6 +22,7 @@
       gap: 20px;
       z-index: 100;
     }
+
     .nav-link {
       color: #00ffff;
       text-decoration: none;
@@ -37,31 +37,34 @@
 
     .header {
       display: flex;
-      align-items: center;
       justify-content: center;
-      flex-direction: column;
-      padding-top: 120px;
-      text-align: center;
+      align-items: center;
+      padding: 100px 40px 50px;
+      gap: 40px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .header h1 {
+    .header img {
+      max-width: 250px;
+      height: auto;
+    }
+
+    .header-content {
+      max-width: 600px;
+    }
+
+    .header-content h1 {
       font-size: 48px;
       color: #00ffff;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
-    .header p {
-      max-width: 600px;
+    .header-content p {
       font-size: 16px;
       line-height: 1.6;
-      margin: 0 auto;
       color: #ddd;
-    }
-
-    #lottie-container {
-      width: 200px;
-      height: 200px;
-      margin: 20px auto;
     }
 
     .cards {
@@ -69,6 +72,8 @@
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
       padding: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .card {
@@ -120,9 +125,11 @@
   </div>
 
   <div class="header">
-    <div id="lottie-container"></div>
-    <h1>Competitions</h1>
-    <p>我热衷于参加各类数据科学、AI、商业分析等比赛。这些经历不仅锻炼了我的实战能力，也让我结识志同道合的伙伴，更在一次次挑战中，将理论与实践紧密结合。</p>
+    <img src="../assets/images/astronaut.png" alt="Astronaut">
+    <div class="header-content">
+      <h1>Competitions</h1>
+      <p>我热衷于参加各类数据科学、AI、商业分析等比赛。这些经历不仅锻炼了我的实战能力，也让我结识志同道合的伙伴，更在一次次挑战中，将理论与实践紧密结合。</p>
+    </div>
   </div>
 
   <div class="cards">
