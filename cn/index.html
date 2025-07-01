@@ -223,7 +223,23 @@
       "professional color5"
     ];
 
+    let y_positions = [];
+
     const createWord = (text, cls) => {
+      const el = document.createElement("span");
+      el.textContent = text;
+      el.className = "floating-word " + cls;
+      el.style.fontSize = (12 + Math.random() * 5) + "px";
+
+      let top;
+      do {
+        top = Math.floor(Math.random() * 85);
+      } while (y_positions.includes(top));
+      y_positions.push(top);
+      el.style.top = top + "%";
+      
+      
+      const createWord = (text, cls) => {
       const el = document.createElement("span");
       el.textContent = text;
       el.className = "floating-word " + cls;
