@@ -22,22 +22,22 @@
     /* 导航条 */
     .nav-bar {
       position: fixed;
-      top: 30px;
+      top: 20px;
       right: 40px;
       display: flex;
-      gap: 16px;
+      gap: 20px;
       z-index: 100;
     }
     .nav-link {
       color: #00ffff;
       text-decoration: none;
       font-size: 16px;
-      text-shadow: 0 0 8px #00ffff;
+      text-shadow: 0 0 10px #00ffff;
       transition: all 0.3s;
     }
     .nav-link:hover {
       color: #ffffff;
-      text-shadow: 0 0 16px #00ffff;
+      text-shadow: 0 0 20px #00ffff;
     }
 
     /* 页面主体布局 */
@@ -93,10 +93,9 @@
     .floating-word {
       position: absolute;
       white-space: nowrap;
-      opacity: 0.85;
+      opacity: 0.8;
+      animation: float 10s infinite ease-in-out;
       pointer-events: none;
-      animation: jitter 8s infinite ease-in-out;
-      font-family: 'Audiowide', sans-serif;
     }
     .professional.color1 { color: #e066ff; }
     .professional.color2 { color: #ff9933; }
@@ -110,12 +109,10 @@
       border-radius: 6px;
       font-size: 12px;
     }
-    @keyframes jitter {
-      0%   { transform: translate(0px, 0px);}
-      25%  { transform: translate(5px, -5px);}
-      50%  { transform: translate(-5px, 5px);}
-      75%  { transform: translate(5px, 5px);}
-      100% { transform: translate(0px, 0px);}
+    @keyframes float {
+      0% { transform: translateY(0px);}
+      50% { transform: translateY(-20px);}
+      100% { transform: translateY(0px);}
     }
   </style>
 </head>
@@ -172,29 +169,34 @@
         "line_linked": { "enable": false },
         "move": {
           "enable": true,
-          "speed": 1.2,
+          "speed": 2,
           "direction": "none",
           "random": true,
           "straight": false,
           "out_mode": "out",
-          "bounce": false
+          "bounce": false,
+          "attract": { "enable": false }
         }
       },
       "interactivity": {
         "detect_on": "canvas",
         "events": {
-          "onhover": { "enable": true, "mode": "bubble" },
-          "onclick": { "enable": true, "mode": "repulse" },
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": true, "mode": "push" },
           "resize": true
         },
         "modes": {
-          "bubble": { "distance": 200, "size": 6, "duration": 2, "opacity": 0.8, "speed": 3 },
-          "repulse": { "distance": 200, "duration": 0.4 }
+          "grab": { "distance": 400, "line_linked": { "opacity": 1 } },
+          "bubble": { "distance": 250, "size": 0, "duration": 2, "opacity": 0, "speed": 3 },
+          "repulse": { "distance": 150, "duration": 0.4 },
+          "push": { "particles_nb": 4 },
+          "remove": { "particles_nb": 2 }
         }
       },
       "retina_detect": true
     });
 
+    // 星云文字
     const professionalWords = [
       "机器学习", "用户画像分析", "消费预测挑战赛",
       "智能客服分析", "产品数据分析", "数据建模",
@@ -221,23 +223,13 @@
       "professional color5"
     ];
 
-    let y_positions = [];
-
     const createWord = (text, cls) => {
       const el = document.createElement("span");
       el.textContent = text;
       el.className = "floating-word " + cls;
       el.style.fontSize = (12 + Math.random() * 5) + "px";
-
-      let top;
-      do {
-        top = Math.floor(Math.random() * 85);
-      } while (y_positions.includes(top));
-      y_positions.push(top);
-      el.style.top = top + "%";
-
-      // 保证只在右半边出现
-      el.style.left = (50 + Math.random() * 45) + "%";
+      el.style.top = Math.random() * 90 + "%";
+      el.style.left = (10 + Math.random() * 80) + "%";
       starfield.appendChild(el);
     };
 
