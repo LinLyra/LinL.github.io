@@ -10,8 +10,7 @@
       margin: 0;
       font-family: 'Audiowide', sans-serif;
       color: #ffffff;
-      background: url("../assets/images/bg-competitions.jpg") center center no-repeat;
-      background-size: cover;
+      background: black;
       overflow-x: hidden;
     }
 
@@ -23,6 +22,7 @@
       gap: 20px;
       z-index: 100;
     }
+
     .nav-link {
       color: #00ffff;
       text-decoration: none;
@@ -37,31 +37,34 @@
 
     .header {
       display: flex;
-      align-items: center;
       justify-content: center;
-      flex-direction: column;
-      padding-top: 120px;
-      text-align: center;
+      align-items: center;
+      padding: 100px 40px 50px;
+      gap: 40px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .header h1 {
+    #lottie-astronaut {
+      width: 180px;
+      height: 180px;
+    }
+
+    .header-content {
+      max-width: 600px;
+    }
+
+    .header-content h1 {
       font-size: 48px;
       color: #00ffff;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
-    .header p {
-      max-width: 600px;
+    .header-content p {
       font-size: 16px;
       line-height: 1.6;
-      margin: 0 auto;
       color: #ddd;
-    }
-
-    #lottie-container {
-      width: 200px;
-      height: 200px;
-      margin: 20px auto;
     }
 
     .cards {
@@ -69,6 +72,8 @@
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
       padding: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .card {
@@ -115,16 +120,16 @@
 </head>
 <body>
   <div class="nav-bar">
-    <a href="/cn/index.html" class="nav-link">🏠 首页</a>
-    <a href="/cn/experience.html" class="nav-link">🛰️ 实习</a>
-    <a href="/cn/projects.html" class="nav-link">🚀 项目</a>
+    <a href="/cn/index.html" class="nav-link">🏠 返回首页</a>
     <a href="/cn/contact.html" class="nav-link">📡 联系我</a>
   </div>
 
   <div class="header">
-    <div id="lottie-container"></div>
-    <h1>Competitions</h1>
-    <p>我热衷于参加各类数据科学、AI、商业分析等比赛。这些经历不仅锻炼了我的实战能力，也让我结识志同道合的伙伴，更在一次次挑战中，将理论与实践紧密结合。</p>
+    <div id="lottie-astronaut"></div>
+    <div class="header-content">
+      <h1>比赛</h1>
+      <p>我在学校里专注于偏技术领域的学习与探索，热衷参与各类与数据科学、AI、产品创新、商业分析等相关的竞赛。这些经历不仅让我在数据建模、AI Hackathon、咨询赛、产品赛等不同类型的比赛中积累了宝贵的实战经验，也让我有机会接触到多元的主题和真实的商业问题，结识志同道合的伙伴。一次次的比赛不仅是技能的打磨，更让我在理论与实践之间架起了紧密的桥梁。</p>
+    </div>
   </div>
 
   <div class="cards">
@@ -143,17 +148,24 @@
       <p>设计交互式仪表盘，直观展示业务指标变化，增强商业洞察。</p>
       <a href="#">查看详情</a>
     </div>
+    <div class="card">
+      <h2>比赛名称 4</h2>
+      <p>这里是占位描述文字，用于展示卡片布局。</p>
+      <a href="#">查看详情</a>
+    </div>
+    <!-- 省略，自己再补充到 20 个 -->
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.1/lottie.min.js"></script>
   <script>
     lottie.loadAnimation({
-      container: document.getElementById('lottie-container'),
+      container: document.getElementById('lottie-astronaut'),
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: '../assets/animations/trophy.json' 
+      path: '../assets/animations/ast.json'
     });
   </script>
 </body>
 </html>
+
