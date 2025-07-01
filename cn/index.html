@@ -24,12 +24,16 @@
       top: 20px;
       right: 30px;
       z-index: 20;
+      display: flex;
+      gap: 12px;
     }
     .nav-link {
       color: #00ffff;
       text-decoration: none;
-      margin: 0 8px;
-      font-size: 16px;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-size: 14px;
       transition: color 0.3s;
     }
     .nav-link:hover {
@@ -88,24 +92,22 @@
     .floating-words span {
       position: absolute;
       font-family: "Orbitron", sans-serif;
-      font-size: 14px;
-      opacity: 0.8;
+      opacity: 0.85;
       white-space: nowrap;
       animation: float 8s ease-in-out infinite;
       transition: all 0.3s;
     }
-    /* 专业词不同色系 */
     .professional.color1 { color: #00ffff; }
     .professional.color2 { color: #e066ff; }
     .professional.color3 { color: #ff9933; }
     .professional.color4 { color: #ffd700; }
     .professional.color5 { color: #1e90ff; }
-    /* 人物标签 */
+    .professional.color6 { color: #39ff14; }
     .personal {
       background: rgba(255,105,180,0.2);
+      color: #ff69b4;
       padding: 4px 8px;
       border-radius: 10px;
-      color: #ff69b4;
       font-size: 13px;
     }
     @keyframes float {
@@ -168,15 +170,34 @@
       "🎶 琵琶十级", "♟️ 围棋四段", "🤝 公益人", "😊 大E人"
     ];
 
-    const colors = ["professional color1", "professional color2", "professional color3", "professional color4", "professional color5"];
+    // 网格分布
+    const rows = 8;
+    const cols = 12;
+    const usedCells = new Set();
+
+    function getGridPosition() {
+      let cell;
+      do {
+        cell = Math.floor(Math.random() * rows * cols);
+      } while (usedCells.has(cell));
+      usedCells.add(cell);
+      const row = Math.floor(cell / cols);
+      const col = cell % cols;
+      const top = (row * (100 / rows)) + Math.random() * (100 / rows * 0.5);
+      const left = (col * (100 / cols)) + Math.random() * (100 / cols * 0.5);
+      return { top, left };
+    }
+
+    const colors = ["professional color1", "professional color2", "professional color3", "professional color4", "professional color5", "professional color6"];
     const container = document.getElementById('floating-words');
 
     professionalWords.forEach(word => {
       const el = document.createElement('span');
       el.textContent = word;
       el.className = colors[Math.floor(Math.random() * colors.length)];
-      el.style.top = Math.random() * 90 + '%';
-      el.style.left = (35 + Math.random() * 60) + '%'; // 保证在右半边漂浮
+      const { top, left } = getGridPosition();
+      el.style.top = top + "%";
+      el.style.left = left + "%";
       el.style.fontSize = (12 + Math.random() * 10) + "px";
       container.appendChild(el);
     });
@@ -185,8 +206,9 @@
       const el = document.createElement('span');
       el.textContent = word;
       el.className = "personal";
-      el.style.top = Math.random() * 90 + '%';
-      el.style.left = (35 + Math.random() * 60) + '%';
+      const { top, left } = getGridPosition();
+      el.style.top = top + "%";
+      el.style.left = left + "%";
       container.appendChild(el);
     });
   </script>
