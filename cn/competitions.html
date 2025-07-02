@@ -46,9 +46,9 @@
       margin: 0 auto;
     }
 
-    .header img {
-      max-width: 200px;
-      height: auto;
+    #lottie-astronaut {
+      width: 180px;
+      height: 180px;
     }
 
     .header-content {
@@ -125,10 +125,10 @@
   </div>
 
   <div class="header">
-    <img src="../assets/images/bg-comp.jpg" alt="Astronaut">
+    <div id="lottie-astronaut"></div>
     <div class="header-content">
       <h1>比赛</h1>
-      <p>我在学校里专注于偏技术领域的学习与探索，热衷参与各类与数据科学、AI、产品创新、商业分析等相关的竞赛。这些经历不仅让我在数据建模、AI Hackathon、咨询赛、产品赛等不同类型的比赛中积累了宝贵的实战经验，也让我有机会接触到多元的主题和真实的商业问题，结识志同道合的伙伴。一次次的比赛不仅是技能的打磨，更让我在理论与实践之间架起了紧密的桥梁。</p>
+      <p>我在校内专注于偏技术领域的学习与探索，校外我热衷参与各类与数据科学、AI、产品创新、商业分析等相关的竞赛。这些经历不仅让我在数据建模、AI 产品、咨询等不同行业领域积累了宝贵的实战经验，也让我有机会接触到多元的主题和真实的商业问题，认识更多志同道合和有趣的伙伴。</p>
     </div>
   </div>
 
@@ -237,11 +237,10 @@
       <a href="#">查看详情</a>
     </div>
   </div>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.1/lottie.min.js"></script>
   <script>
     lottie.loadAnimation({
-      container: document.getElementById('lottie-container'),
+      container: document.getElementById('lottie-astronaut'),
       renderer: 'svg',
       loop: true,
       autoplay: true,
@@ -250,5 +249,6 @@
   </script>
 </body>
 </html>
+
 
 
