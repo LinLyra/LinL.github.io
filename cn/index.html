@@ -19,7 +19,6 @@
       height: 100%;
       z-index: -2;
     }
-    /* 导航条 */
     .nav-bar {
       position: fixed;
       top: 20px;
@@ -39,7 +38,6 @@
       color: #ffffff;
       text-shadow: 0 0 20px #00ffff;
     }
-    /* 页面主体布局 */
     .wrapper {
       display: flex;
       height: 100vh;
@@ -81,7 +79,6 @@
       line-height: 1.6;
       max-width: 400px;
     }
-    /* 星云漂浮区 */
     .starfield {
       flex: 1;
       position: relative;
@@ -127,7 +124,6 @@
   </div>
 
   <div class="wrapper">
-    <!-- 左边介绍 -->
     <div class="left-section">
       <img src="../assets/images/me.jpg" alt="LinLyra头像" />
       <div class="name">林珑（玲珑）</div>
@@ -142,11 +138,11 @@
       </div>
     </div>
 
-    <!-- 星云漂浮 -->
     <div class="starfield" id="starfield"></div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <!-- ✅ 改这里！本地加载 particles.min.js -->
+  <script src="../assets/particles.min.js"></script>
   <script>
     particlesJS('particles-js', {
       "particles": {
@@ -239,25 +235,18 @@
       el.className = "floating-word " + cls;
       el.style.fontSize = (12 + Math.random() * 5) + "px";
 
-
       const leftBoundary = window.innerWidth * 0.2;
       const rightBoundary = window.innerWidth * 0.8;
 
       let left = leftBoundary + col * gridW;
-
-      // 保证不会超出右边
       if (left > rightBoundary - 60) left = rightBoundary - 60;
 
-      // 如果想再往左一点（比如整体左移 50px）：
       left -= 400;
 
       el.style.left = left + "px";
 
-      // 调整上下位置
-      const top = row * gridH + 150; // 往下移 60px
+      const top = row * gridH + 150;
       el.style.top = top + "px";
-
-
 
       starfield.appendChild(el);
     }
@@ -272,4 +261,5 @@
   </script>
 </body>
 </html>
+
 
