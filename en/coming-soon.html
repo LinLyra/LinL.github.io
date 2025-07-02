@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coming Soon</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: #00ffff;
+      font-family: 'Audiowide', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+      flex-direction: column;
+    }
+    #lottie-container {
+      width: 200px;
+      height: 200px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 28px;
+    }
+    p {
+      font-size: 16px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <div id="lottie-container"></div>
+  <h1>🚀 Exploring new galaxies…</h1>
+  <p>This part of my universe isn’t built yet.<br>See you in the next adventure!</p>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.1/lottie.min.js"></script>
+  <script>
+    lottie.loadAnimation({
+      container: document.getElementById('lottie-container'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: '../assets/animations/coming.json' // 这里换成你的 JSON 动画路径
+    });
+  </script>
+</body>
+</html>
