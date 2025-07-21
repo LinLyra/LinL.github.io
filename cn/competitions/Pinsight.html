@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2025德勤数字化精英挑战赛</title>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Audiowide', sans-serif;
+      color: #ffffff;
+      background: black;
+    }
+    .header {
+      text-align: center;
+      padding: 100px 20px 40px;
+      background: radial-gradient(circle, #0ff 0%, #000 80%);
+    }
+    .header h1 {
+      font-size: 48px;
+      color: #00ffff;
+      margin-bottom: 10px;
+    }
+    .header p {
+      font-size: 16px;
+      color: #ccc;
+    }
+    .section {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .section h2 {
+      color: #00ffff;
+      border-left: 4px solid #00ffff;
+      padding-left: 10px;
+      margin-bottom: 10px;
+    }
+    .section p, .section li {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #ddd;
+    }
+    .section img, .section video {
+      width: 100%;
+      margin: 15px 0;
+      border-radius: 8px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #00ffff;
+      color: #000;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>PinSight · 智能审计系统</h1>
+    <p>2025 德勤数字化挑战赛｜AI+审计赛道 Top5 ｜全国亚军</p>
+  </div>
+
+  <div class="section">
+    <h2>🏁 比赛概况</h2>
+    <p>德勤数字化挑战赛聚焦 AI、ESG、制造等行业场景，采用“初赛选拔 + 决赛导师带队”的双阶段机制。我们从 300+ 支队伍中晋级为审计赛道 Top5 成员，进入决赛组建导师战队，最终凭借完整原型系统荣获全国亚军。</p>
+  </div>
+
+  <div class="section">
+    <h2>🧠 初赛方案：AI驱动审计流程重构</h2>
+    <p>在初赛中，我们以“AI赋能审计流程重构”为题，围绕传统审计中的抽样困境提出智能化改造路径。我们结合 NLP 模型与规则引擎，设计了一个评分式风险判断机制，用以支持自动化的审计样本抽取、凭证筛查及合规提示。同时构建了完整的字段模板体系，并通过原型页面演示智能抽样逻辑的效果。</p>
+    <img src="/assets/images/pinsight-prelim.png" alt="初赛展示图">
+    <a class="btn" href="/assets/ppt/pinsight_prelim.pdf" target="_blank">查看初赛方案 PDF</a>
+  </div>
+
+  <div class="section">
+    <h2>🚀 决赛作品：PinSight 智能审计系统</h2>
+    <p>在导师指导下，我们进一步迭代初赛方案，打造了一个完整闭环的智能审计执行平台——PinSight。系统支持从“样本上传、抽样识别、字段提取、异常校验、底稿生成”全流程自动化执行，是面向中小型事务所设计的模块化 AI 审计助手。</p>
+    <p>核心功能包括：</p>
+    <ul>
+      <li>🎯 <strong>智能抽样：</strong>支持 Excel账套数据上传，基于知识规则库自动筛选高风险样本</li>
+      <li>📷 <strong>凭证识别：</strong>融合 Donut 图像识别模型与规则增强引擎，精准提取图像字段</li>
+      <li>🔍 <strong>样本检核：</strong>匹配合同、时间、金额等字段逻辑，NLP语义比对辅助异常提示</li>
+      <li>📝 <strong>审计底稿生成：</strong>结合 ChatGLM 本地模型，生成可溯源、结构化的电子底稿</li>
+      <li>📦 <strong>插件化部署：</strong>系统模块可独立运行，支持集成进现有审计系统中</li>
+    </ul>
+    <video controls src="/assets/video/pinsight_demo.mp4"></video>
+    <p>👇 决赛现场展示视频：</p>
+    <video controls src="/assets/video/pinsight_final.mp4"></video>
+  </div>
+
+  <div class="section">
+    <h2>👤 我的职责与收获</h2>
+    <p>我在战队中主要负责“智能抽样模块”与“图像识别适配模块”的建模与逻辑开发工作，承担从风险规则库构建、字段语义建模到审计策略抽象的设计与实现任务。</p>
+    <ul>
+      <li>📌 构建风险规则特征库与评分机制，实现样本自动分级与高风险筛选</li>
+      <li>📌 协同识别模块，对接 Donut 模型，支持多种发票/报销单结构化字段提取</li>
+      <li>📌 配合产品与原型设计，整理业务流程与字段模板，撰写系统功能说明</li>
+    </ul>
+    <p>这次比赛让我对财务审计业务的核心流程有了深入理解，同时也锻炼了我在 AI 工程落地、跨团队协作与系统设计上的综合能力。</p>
+  </div>
+</body>
+</html>
