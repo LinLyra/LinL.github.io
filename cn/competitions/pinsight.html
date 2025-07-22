@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>2025德勤数字化精英挑战赛</title>
+  <title>PinSight · 德勤数字化挑战赛</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -14,9 +14,17 @@
     }
 
     .header {
+      position: relative;
       text-align: center;
       padding: 100px 20px 40px;
       background: linear-gradient(135deg, #003c3c, #000);
+    }
+
+    .header img.logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      height: 40px;
     }
 
     .header h1 {
@@ -78,47 +86,64 @@
 </head>
 <body>
   <div class="header">
+    <img src="/assets/images/deloitte-logo.png" alt="Deloitte Logo" class="logo">
     <h1>PinSight · 智能审计系统</h1>
-    <p>2025 德勒数字化挑战赛 | AI+审计赛道 Top5 | 全国亚军</p>
+    <p>2025 德勤数字化精英挑战赛 | 全国亚军</p>
   </div>
 
-  <div class="section">
-    <h2>🏁 比赛概况</h2>
-    <p>德勒数字化挑战赛聚焦 AI、ESG、制造等行业场景，采用“初赛选择 + 决赛导师带队”的双阶段机制。我们从 300+ 支队伏中晋级为审计赛道 Top5 成员，进入决赛组建导师战队，最终凭借完整原型系统荣获全国亚军。</p>
-  </div>
+  <section class="project">
+  <h2>AIAuditX · 智能审计协同系统</h2>
+  <p><strong>项目类型：</strong>2025 初赛个人方案 ｜ AI+审计赛道Top5 </p>
+  <p><strong>项目定位：</strong> 面向中小事务所和企业内审团队，AIAuditX 是一款聚焦“AI + 审计 + 协同”的智能审计系统设计方案，旨在用 NLP、知识图谱、多轮问答等能力重构传统审计流程。</p>
+  <p><strong>核心问题：</strong></p>
+  <ul>
+    <li>审计材料结构复杂、信息碎片化，人工查阅效率低</li>
+    <li>风险识别依赖经验判断，缺乏标准化、可解释输出</li>
+    <li>多角色协同混乱，流程追溯困难，责任难以明确</li>
+  </ul>
 
-  <div class="section">
-    <h2>🧠 初赛方案：AI驱动审计流程重构</h2>
-    <p>我们以“AI赋能审计流程重构”为题，围绕传统审计中的抽样困境提出智能化改造路径，结合 NLP 模型与规则引擎，设计风险分级机制和完整字段模板体系，并通过原型页面演示智能抽样逻辑的效果。</p>
-    <img src="/assets/images/pinsight-prelim.png" alt="初赛展示图">
-    <a class="btn" href="/assets/ppt/pinsight_prelim.pdf" target="_blank">查看初赛方案 PDF</a>
-  </div>
+  <p><strong>方案亮点：</strong></p>
+  <ul>
+    <li>🔎 <strong>文档解析 + 风险评分：</strong>基于 NLP 对财报、合同、附注等非结构化文件进行字段提取，构建可解释的风险评分体系</li>
+    <li>🧠 <strong>“AI审计三人组”机制：</strong>设计三类智能体（数据分析官、风控官、行业对照员）模拟团队共识决策流程</li>
+    <li>💬 <strong>问答式协同助手：</strong>支持用户与 AI 多轮互动，自动生成审计建议与工作计划，类 Copilot 模式</li>
+    <li>🧩 <strong>插件化部署结构：</strong>模块支持 Excel / Word 插件嵌入与本地部署，满足数据合规与行业定制需求</li>
+    <li>📊 <strong>风险链条图：</strong>输出推理路径（例如“现金异常 → 应收暴增 → 模式变化”），提升透明度与信任度</li>
+  </ul>
+  
+    <h3>方案展示</h3>
+    <img src="/assets/images/Aduit.png" alt="项目方案展示" class="project-image" />
+</section>
 
-  <div class="section">
-    <h2>🚀 决赛作品：PinSight 智能审计系统</h2>
-    <p>在导师指导下，我们进一步迭代初赛方案，打造了一个完整闭环的智能审计执行平台：PinSight。系统支持从样本上传、抽样识别、字段提取、异常校验、底稿生成全流程智能化执行，是面向中小型事务所设计的 AI 审计助手。</p>
-    <ul>
-      <li>🎯 <strong>智能抽样：</strong>支持 Excel 账套数据上传，自动算法判断高风险样本</li>
-      <li>📷 <strong>凭证识别：</strong>融合 Donut 模型和规则引擎，推理字段解析精确提取</li>
-      <li>🔍 <strong>样本检核：</strong>时间、合同、金额对应，合规并 NLP 辅助检测</li>
-      <li>📝 <strong>底稿生成：</strong>采用本地 ChatGLM 模型，自动生成结构化底稿</li>
-      <li>📦 <strong>插件化部署：</strong>系统模块可独立运行，支持集成至现有审计系统</li>
-    </ul>
-    <video controls src="/assets/video/pinsight_demo.mp4"></video>
-    <p>👇 决赛环节展示视频：</p>
-    <video controls src="/assets/video/pinsight_final.mp4"></video>
-  </div>
 
-  <div class="section">
-    <h2>👤 我的职责与收获</h2>
-    <p>我在队内主要负责“智能抽样模块”与“图像识别模块”的逻辑设计与开发，包括风险规则库构建、字段语义抽象、审计策略规则等模块的技术实现。</p>
-    <ul>
-      <li>📌 构建风险规则特征库与分级机制，支持样本自动分类与高风险样本筛选</li>
-      <li>📌 同步 Donut 模型接入，支持多种凭证形式字段提取</li>
-      <li>📌 配合产品原型设计，展示工作流程与字段规范，编写系统功能说明</li>
-    </ul>
-    <p>这次比赛使我对财务审计业务有了较深连接，同时也经历了从 AI 设计、团队协作到原型落地的实战演练。</p>
-  </div>
-</body>
-</html>
+ <div class="section">
+  <h2>🚀 决赛作品：PinSight 智能审计系统</h2>
+  <p><strong>项目类型：</strong>决赛团队作品 ｜ 全国亚军</p>
+  <p><strong>项目定位：</strong>PinSight 是一款面向中小事务所、政企内审与审计教学场景的智能审计系统，覆盖“抽样识别 → 凭证解析 → 样本校验 → 底稿生成”全流程，具备模块化、插件化、本地部署等特性，支持离线运行与自定义扩展。</p>
+
+  <ul>
+    <li>📷 <strong>凭证识别：</strong>融合 Donut 模型与规则引擎，精准提取图像字段</li>
+    <li>🔍 <strong>样本校验：</strong>对金额、时间、合同等字段进行 NLP 语义核对</li>
+    <li>📝 <strong>底稿生成：</strong>接入本地 ChatGLM 模型，自动生成结构化电子底稿</li>
+    <li>📦 <strong>插件化部署：</strong>模块可独立运行，支持嵌入现有审计系统</li>
+  </ul>
+
+  <h3>👤 我的职责</h3>
+  <ul>
+    <li>主导产品架构设计，规划模块分层结构与用户交互路径</li>
+    <li>独立完成前端开发，落地可交互原型系统</li>
+    <li>接入 Donut OCR 与 ChatGLM 模型，打通 AI 模块与审计业务逻辑</li>
+    <li>统筹模块联动，包括样本上传、字段解析、异常提示与结果生成等流程</li>
+  </ul>
+
+  <h3>Demo展示</h3>
+  <video controls src="/assets/video/pinsight_final.mp4"></video>
+
+  <h3>比赛资与成果展示</h3>
+  <img src="/assets/images/pinsight.png" alt="项目PPT截图" />
+  <img src="/assets/images/de.png" alt="现场" />
+  <img src="/assets/images/de3.png" alt="现场" />
+</div>
+
+
 
